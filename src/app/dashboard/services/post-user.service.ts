@@ -13,7 +13,33 @@ export class PostUserService {
   constructor(private httpClient:HttpClient) { }
 
   //genero nuevos usuarios/modifico usuarios existentes
-  postUser(user:Usuario):Observable<Usuario>{
-    return this.httpClient.post<Usuario>(`/api/Users`,user)
+  postUser(
+    fullName:string,
+    email:string,
+    cellPhone:string,
+    address:string,
+    password:string,
+    id?:number,
+    isAccepted?:boolean,
+    isDeleted?:boolean,
+    observations?:string,
+    vehicle?:Vehicle,
+    rol?:Rol
+  ):Observable<Usuario>{
+    return this.httpClient.post<Usuario>(`/api/Users`,{
+      id:id,
+      fullName:fullName,
+      email:email,
+      cellPhone:cellPhone,
+      address:address,
+      password:password,
+      isAccepted:isAccepted,
+      isDeleted:isDeleted,
+      observations:observations,
+      vehicle:vehicle,
+      rol:rol
+
+
+    })
   }
 }
