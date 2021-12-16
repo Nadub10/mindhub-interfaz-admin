@@ -9,7 +9,8 @@ import { ComponentsSharedModule } from '../shared/components-shared/components-s
 import { MaterialModule } from '../shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { TraerViajesService } from './services/traer-viajes.service';
+import { GetTravelsService } from './services/get-travels.service';
 
 @NgModule({
   declarations: [

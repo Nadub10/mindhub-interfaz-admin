@@ -1,0 +1,16 @@
+<mat-form-field appearance="outline">
+    <mat-label>Tipo de Usuario</mat-label>
+    <mat-select [(value)]="tipoViajes" (valueChange)="cambiaOpcion()">
+      <mat-option  [value]="'viajesActivos'">
+        Todos los viajes
+      </mat-option>
+      <mat-option  [value]="'viajesPendientes'">
+        Viajes Pendientes
+      </mat-option>
+      <mat-option  [value]="'viajesEnCurso'">
+        Viajes en Curso
+      </mat-option>
+    </mat-select>
+    
+  </mat-form-field>
+  {{tipoViajes}}

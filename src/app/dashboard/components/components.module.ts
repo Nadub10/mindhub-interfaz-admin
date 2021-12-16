@@ -9,6 +9,7 @@ import { AuthRoutingModule } from '../../auth/auth-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TablaViajesComponent } from './tabla-viajes/tabla-viajes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SelectViajesComponent } from './select-viajes/select-viajes.component';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     SideMenuComponent,
     FormRegistroComponent,
-    TablaViajesComponent
+    TablaViajesComponent,
+    SelectViajesComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports:[
     SideMenuComponent,
     FormRegistroComponent,
-    TablaViajesComponent
+    TablaViajesComponent,
+    SelectViajesComponent
   ]
 })
 export class ComponentsModule { }

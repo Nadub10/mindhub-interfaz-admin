@@ -3,6 +3,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { ViajesEquipos } from 'src/app/shared/interfaces/viajesEquipos';
 import { GetTravelsService } from './get-travels.service';
 import { sort, sortInverso } from './funciones';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +15,17 @@ export class TraerViajesService {
   arrayBaseViajes:ViajesEquipos[]=[];
   viajesDisponibles:ViajesEquipos[]=[];
   historialViajes:ViajesEquipos[]=[];
+  vista!:string;
+  arrayStatusTravel!:number[];
+  setStatusTravel(vista:string,...args:number[]){
+    this.vista=vista;
+    this.arrayStatusTravel=args;
+    console.log(this.arrayStatusTravel)
+  }
 
-  traerViajes(vista:string,...args:number[]){
+  traerViajes(){
     let array:Observable<ViajesEquipos[]>[]=[];
-    args.forEach(i=>{
+    this.arrayStatusTravel.forEach(i=>{
       array.push(this.getTravels.getTravels(i));
     })
     forkJoin([...array])
@@ -28,11 +36,17 @@ export class TraerViajesService {
           return acc
         },[])
         this.arrayBaseViajes.sort(sort);
-        if(vista.toLowerCase()==='historial'){
+        this.viajesDisponibles=[...this.arrayBaseViajes];
+        console.log(this.viajesDisponibles)
+        this.dataSource= new MatTableDataSource(this.viajesDisponibles);
+        //console.log(this.dataSource)
+        if(this.vista.toLowerCase()==='historial'){
           this.historialViajes=this.historialViajes.sort(sortInverso)
         }
        // console.log(this.arrayBaseViajes)
       }
     )
   }
+  dataSource!: MatTableDataSource<ViajesEquipos>;
+  
 }
