@@ -1,1 +1,15 @@
-<p>side-menu works!</p>
+<div class="menu-logeado" fxLayout="column">
+    <button class="btn-nav" mat-raised-button color="primary" routerLink="/dashboard" routerLinkActive="router-link-active" 
+    >Inicio</button>
+    <button class="btn-nav" mat-raised-button color="primary" routerLink="/dashboard/registro" routerLinkActive="router-link-active" 
+    >Registro</button>
+    <button class="btn-nav" mat-raised-button color="primary" routerLink="/dashboard/viajes" routerLinkActive="router-link-active"
+    >Viajes</button>
+    <button class="btn-nav" mat-raised-button color="primary" routerLink="/dashboard/historial" routerLinkActive="router-link-active" 
+    >Historial</button>
+    <button class="btn-nav" mat-raised-button color="primary" routerLink="/dashboard/listas" routerLinkActive="router-link-active" 
+    >Listas</button>
+    <button class="btn-nav" mat-stroked-button color="dark" routerLink="/auth" routerLinkActive="router-link-active"
+     (click)="cerrarSesion()" >
+     <mat-icon>exit_to_app</mat-icon>Cerrar Sesión</button>
+</div>

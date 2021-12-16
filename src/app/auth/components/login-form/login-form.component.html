@@ -1,5 +1,5 @@
 <div class="form-container">
-    <form class="loginForm" [formGroup]="loginForm" #formDirective=ngForm  fxLayout="column">
+    <form class="loginForm" [formGroup]="loginForm" #formDirective=ngForm (ngSubmit)="submitForm(formDirective)"  fxLayout="column">
         <mat-form-field  appearance="outline"> 
          <mat-label>Email</mat-label>
          <input name="email" matInput formControlName="email" placeholder="ejemplo@mail.com" >

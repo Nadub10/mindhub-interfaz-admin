@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { AuthRoutingModule } from '../auth-routing.module';
-import { DashboardRoutingModule } from '../../dashboard/dashboard-routing.module';
 import { MaterialModule } from '../../shared/material/material.module';
 import { FlexLayoutModule, } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,7 +15,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    DashboardRoutingModule,
     MaterialModule,
     FlexLayoutModule,
     FormsModule,

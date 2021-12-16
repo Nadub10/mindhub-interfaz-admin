@@ -7,7 +7,7 @@ import { PagesModule } from './pages/pages.module';
 import { ComponentsModule } from './components/components.module';
 import { ComponentsSharedModule } from '../shared/components-shared/components-shared.module';
 import { MaterialModule } from '../shared/material/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 
@@ -23,7 +23,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ComponentsSharedModule,
     MaterialModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule
   ],
   providers:[]
 })

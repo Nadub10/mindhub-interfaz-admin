@@ -1,0 +1,15 @@
+mat-drawer-container{
+    height: 100%;
+    
+    mat-drawer{
+        //background-color: lightpink;
+        width: 250px;
+        padding: 16px;
+        padding-top: 50px;
+        .saludo{
+            text-align: center;
+        }
+        
+    }
+    
+}

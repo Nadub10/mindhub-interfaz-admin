@@ -14,17 +14,19 @@ export class PostUserService {
 
   //genero nuevos usuarios/modifico usuarios existentes
   postUser(
+    id:number,
     fullName:string,
     email:string,
     cellPhone:string,
     address:string,
     password:string,
-    id?:number,
-    isAccepted?:boolean,
-    isDeleted?:boolean,
+    isAccepted:boolean,
+    isDeleted:boolean,
+    vehicle:Vehicle | null,
+    rol:Rol,
     observations?:string,
-    vehicle?:Vehicle,
-    rol?:Rol
+    
+    
   ):Observable<Usuario>{
     return this.httpClient.post<Usuario>(`/api/Users`,{
       id:id,
