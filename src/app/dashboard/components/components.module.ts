@@ -7,13 +7,15 @@ import { MaterialModule } from '../../shared/material/material.module';
 import { ComponentsSharedModule } from 'src/app/shared/components-shared/components-shared.module';
 import { AuthRoutingModule } from '../../auth/auth-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { TablaViajesComponent } from './tabla-viajes/tabla-viajes.component';
 
 
 
 @NgModule({
   declarations: [
     SideMenuComponent,
-    FormRegistroComponent
+    FormRegistroComponent,
+    TablaViajesComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   ],
   exports:[
     SideMenuComponent,
-    FormRegistroComponent
+    FormRegistroComponent,
+    TablaViajesComponent
   ]
 })
 export class ComponentsModule { }

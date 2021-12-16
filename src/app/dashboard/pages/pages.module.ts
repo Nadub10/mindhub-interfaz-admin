@@ -11,6 +11,7 @@ import { MaterialModule } from '../../shared/material/material.module';
 import { ComponentsModule } from '../components/components.module';
 import { ComponentsSharedModule } from '../../shared/components-shared/components-shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -29,7 +30,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MaterialModule,
     ComponentsModule,
     ComponentsSharedModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule
   ]
 })
 export class PagesModule { }

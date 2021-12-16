@@ -24,6 +24,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MaterialModule,
     FormsModule,
     FlexLayoutModule
-  ]
+  ],
+  providers:[]
 })
 export class DashboardModule { }

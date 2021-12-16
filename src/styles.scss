@@ -1,4 +1,4 @@
-
+@use "sass:map";
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
@@ -35,5 +35,73 @@ $interfaz-admin-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+
+html, body { height: 100%; margin: 0px; padding: 0px; box-sizing: border-box;
+  
+  
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+$colors:(
+    "blanco":#fff,
+    "negro":#242325,
+    "teal":#64FFDA,
+);
+
+@mixin flex-center($flex-direction, $justify-content) {
+display: flex;
+flex-direction: $flex-direction;
+align-items:center;
+justify-content: $justify-content;
+}
+
+@mixin titulos ($font-size, $line-height,$text-align:center,$padding:0px,$width:90%) {
+    font-size: $font-size;
+    font-weight:500;
+    line-height: $line-height;
+    margin: 0;
+    color:map.get($colors, "blanco");
+    width: $width;
+    text-align: $text-align;
+    padding: $padding;
+   
+}
+
+@mixin descripcion ($font-size, $line-height,$text-align:center){
+    font-size: $font-size;
+    font-weight:400;
+    line-height: $line-height;
+    margin: 0;
+    color:map.get($colors, "blanco");
+    text-align: $text-align;
+}
+@mixin gradiente (){
+    animation: fluido 3s  infinite;
+    background: linear-gradient(-45deg, #fff,#A7FFEB,#64FFDA, #fff);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+                    
+    @keyframes fluido {
+     0% { background-position: 0 50% }
+     50% { background-position: 100% 50% }
+      100% { background-position: 0 50% }
+    }
+}
+
+/* .mensaje-error{
+  //background-color:$red-200;
+  color:map.get($colors, "negro");
+  font-weight: bold;
+  
+  
+}
+.mensaje-exito{
+  background-color:#64FFDA;
+  color:map.get($colors, "negro");
+  font-weight: bold;
+  
+  
+} */

@@ -1,0 +1,34 @@
+@use "../../../../styles.scss";
+@use "sass:map";
+.form-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+   .loginForm{
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    
+    padding: 10px 10px;
+    background-color:map.get(styles.$colors, "blanco");
+    border-radius: 5px;
+    
+    mat-form-field{
+        
+        height: 70px;
+        
+        
+    }
+   
+    button{
+        //margin: 15px 0px;
+        line-height: 2.5;
+    }
+
+
+    
+}
+}
+    

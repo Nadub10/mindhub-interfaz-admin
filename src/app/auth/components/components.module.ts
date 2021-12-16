@@ -4,7 +4,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { AuthRoutingModule } from '../auth-routing.module';
 import { DashboardRoutingModule } from '../../dashboard/dashboard-routing.module';
 import { MaterialModule } from '../../shared/material/material.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule, } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AuthRoutingModule,
     DashboardRoutingModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     LoginFormComponent
