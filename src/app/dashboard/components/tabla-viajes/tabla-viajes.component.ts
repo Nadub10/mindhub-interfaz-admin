@@ -36,7 +36,7 @@ export class TablaViajesComponent implements OnInit {
     
     
   }
-  displayedColumns: string[] = ['fullName', 'address', 'lastStatusTravel'];
+  displayedColumns: string[] = ['fullName', 'address', 'lastStatusTravel','acciones'];
   dataSource!: MatTableDataSource<ViajesEquipos>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -58,7 +58,12 @@ export class TablaViajesComponent implements OnInit {
   }
   loading:boolean=true;
   
+  statusTravelMap: any = {
+    '1': 'Pendiente a retirar', '2': 'Retiro asignado', '3': 'Retirado','4':'Pendiente de reparación',
+    '5':'Reparado', '6':'Entrega asignada', '7':'Pendiente de entrega','8':'Entregado','9':'Recibido'
+  };
 }
+
 
   
   

@@ -24,17 +24,14 @@ export class TablaUsuariosComponent implements OnInit {
       }
     )
   }
-  displayedColumns: string[] = ['fullName', 'rol.id', 'address','cellPhone','email','vehicle'];
+  displayedColumns: string[] = ['fullName', 'rol.id', 'address','cellPhone','email','vehicle','acciones'];
   dataSource!: MatTableDataSource<Usuario>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  actualPaginator!: MatPaginator;
-@ViewChild(MatPaginator)
-set paginate(value: MatPaginator) {
-  this.actualPaginator = value;
-}
+
+  
   
 
   applyFilter(event: Event) {

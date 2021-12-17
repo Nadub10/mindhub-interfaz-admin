@@ -11,7 +11,7 @@ export class ListasComponent implements OnInit {
   constructor(public traerUsuarios:TraerUsuariosService) { }
 
   ngOnInit(): void {
-    this.infoTabla('clientes')
+    this.infoTabla('admin')
   }
   infoTabla(parametro:string){
     

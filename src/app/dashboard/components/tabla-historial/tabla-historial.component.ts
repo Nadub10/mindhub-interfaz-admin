@@ -34,7 +34,7 @@ export class TablaHistorialComponent implements OnInit {
   ngAfterViewInit() {
     
   }
-  displayedColumns: string[] = ['cadete.fullName', 'cliente.fullName', 'operationDate.fecha','operationDate.hora','lastStatusTravel'];
+  displayedColumns: string[] = ['cadete.fullName', 'cliente.fullName', 'operationDate.fecha','operationDate.hora','lastStatusTravel','acciones'];
   dataSource!: MatTableDataSource<ViajesEquipos>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

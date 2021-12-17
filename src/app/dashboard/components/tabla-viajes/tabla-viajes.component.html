@@ -25,7 +25,43 @@
       <!-- Name Column -->
       <ng-container matColumnDef="lastStatusTravel">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
-        <td mat-cell *matCellDef="let row"> {{row.lastStatusTravel}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.lastStatusTravel.toString() | i18nSelect: statusTravelMap}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+        <td mat-cell *matCellDef="let row"> 
+          <button mat-icon-button color="dark" matTooltip="Más Información">
+            <mat-icon>info</mat-icon>
+          </button>
+          <button *ngIf="row.lastStatusTravel === 1 || row.lastStatusTravel === 5" mat-icon-button color="primary" matTooltip="Marcar como Asignado"
+          >
+          <mat-icon>touch_app</mat-icon>
+          </button>
+          <button *ngIf="row.lastStatusTravel === 2 || row.lastStatusTravel === 6" mat-icon-button color="primary" matTooltip="Marcar como Retirado"
+          >
+          <mat-icon>local_shipping</mat-icon>
+          </button>
+          <button *ngIf="row.lastStatusTravel === 2 || row.lastStatusTravel === 6" mat-icon-button color="warn" matTooltip="Eliminar Viaje"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+          
+          <button *ngIf="row.lastStatusTravel === 3|| row.lastStatusTravel === 7" mat-icon-button color="primary" matTooltip="Marcar como Finalizado"
+          >
+          <mat-icon>done_outline</mat-icon>
+          </button>
+          <button *ngIf="row.lastStatusTravel === 4" mat-icon-button color="primary" matTooltip="Marcar como Reparado"
+          >
+          <mat-icon>build</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" matTooltip="Editar Viaje"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          
+         
+        </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
