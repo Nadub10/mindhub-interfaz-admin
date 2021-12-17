@@ -1,4 +1,6 @@
-<img *ngIf="loading" src="../../../../assets/img/box.png" alt="">
+
+<mat-spinner *ngIf="loading" diameter="50"></mat-spinner>
+
 <div *ngIf="!loading">
 <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
@@ -6,7 +8,7 @@
   </mat-form-field>
   
   <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="this.traerViajes.dataSource" matSort>
+    <table mat-table [dataSource]="dataSource" matSort>
   
       <!-- ID Column -->
       <ng-container matColumnDef="fullName">

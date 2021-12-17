@@ -1,3 +1,4 @@
-
-  <app-select-viajes (selectionChange)="infoTabla($event)"></app-select-viajes>
-  <app-tabla-viajes [arrayViajes]="arrayViajes"></app-tabla-viajes>
+<div class="wrapper" fxLayout="column" fxLayoutAlign="flex-start center">
+  <app-select-viajes class="select" (selectionChange)="infoTabla($event)"></app-select-viajes>
+  <app-tabla-viajes class="tabla"></app-tabla-viajes>
+</div>

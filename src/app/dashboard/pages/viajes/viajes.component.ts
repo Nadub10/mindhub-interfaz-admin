@@ -19,38 +19,30 @@ export class ViajesComponent implements OnInit {
 
     
   ngOnInit(): void {
-    this.infoTabla('viajesActivos');
+    this.infoTabla('viajesPendientes');
     this.traerViajes.traerViajes();
-    this.traerViajes.viajesDisponibles;
-    this.arrayViajes=this.traerViajes.viajesDisponibles;
-    console.log(this.arrayViajes)
+    
   }
   
 
   infoTabla(parametro:string){
-    console.log('padree')
-    console.log(parametro)
+    
     if(parametro==='viajesActivos'){
       this.traerViajes.setStatusTravel('todos',1,2,3,4,5,6,7);
-      this.traerViajes.traerViajes();
-    this.traerViajes.viajesDisponibles;
-    
-    this.arrayViajes=this.traerViajes.viajesDisponibles;
+       this.traerViajes.traerViajes();
+   
 
     }
     else if(parametro==='viajesPendientes'){
       this.traerViajes.setStatusTravel('todos',1,5);
-      this.traerViajes.traerViajes();
-    this.traerViajes.viajesDisponibles;
-    
-    this.arrayViajes=this.traerViajes.viajesDisponibles;
+       this.traerViajes.traerViajes();
+  
     
     }
     else{
       this.traerViajes.setStatusTravel('todos',2,6,3,7);
       this.traerViajes.traerViajes();
-    this.traerViajes.viajesDisponibles;
-    this.arrayViajes=this.traerViajes.viajesDisponibles;
+   
     }
   }
 

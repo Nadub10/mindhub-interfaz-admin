@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -36,7 +37,8 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     MatSelectModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatProgressSpinnerModule
   ],
   exports:[
     CommonModule,
@@ -54,7 +56,8 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     MatSelectModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule { }

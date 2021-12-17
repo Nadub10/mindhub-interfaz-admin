@@ -14,7 +14,6 @@ import { TraerViajesService } from '../../services/traer-viajes.service';
 })
 export class TablaViajesComponent implements OnInit {
 
-  @Input() arrayViajes!:ViajesEquipos[];
 
   constructor(public traerViajes:TraerViajesService) {
     
@@ -22,9 +21,17 @@ export class TablaViajesComponent implements OnInit {
   }
    ngOnInit(): void {
     
-    this.dataSource = this.traerViajes.dataSource;
+    this.traerViajes.getSubject().subscribe(
+      resp=>{
+        
+        this.dataSource= new MatTableDataSource(resp);
+        this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      this.loading=false;
+      }
+    )
    // this.dataSource.data=this.arrayViajes;
-    this.loading=false;
+    
     
     
     
@@ -38,8 +45,7 @@ export class TablaViajesComponent implements OnInit {
   
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    
   }
 
   applyFilter(event: Event) {

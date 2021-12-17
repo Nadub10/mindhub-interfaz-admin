@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, forkJoin, Subject } from 'rxjs';
 import { ViajesEquipos } from 'src/app/shared/interfaces/viajesEquipos';
 import { GetTravelsService } from './get-travels.service';
 import { sort, sortInverso } from './funciones';
@@ -17,6 +17,8 @@ export class TraerViajesService {
   historialViajes:ViajesEquipos[]=[];
   vista!:string;
   arrayStatusTravel!:number[];
+  public shareDataSubject = new Subject<ViajesEquipos[]>();
+  public arrayHistorial = new Subject<ViajesEquipos[]>();
   setStatusTravel(vista:string,...args:number[]){
     this.vista=vista;
     this.arrayStatusTravel=args;
@@ -36,17 +38,22 @@ export class TraerViajesService {
           return acc
         },[])
         this.arrayBaseViajes.sort(sort);
-        this.viajesDisponibles=[...this.arrayBaseViajes];
-        console.log(this.viajesDisponibles)
-        this.dataSource= new MatTableDataSource(this.viajesDisponibles);
+        this.shareDataSubject.next(this.arrayBaseViajes)
         //console.log(this.dataSource)
         if(this.vista.toLowerCase()==='historial'){
-          this.historialViajes=this.historialViajes.sort(sortInverso)
+          this.historialViajes=this.arrayBaseViajes.sort(sortInverso)
+          this.arrayHistorial.next(this.historialViajes)
+
         }
        // console.log(this.arrayBaseViajes)
       }
     )
   }
-  dataSource!: MatTableDataSource<ViajesEquipos>;
+  public getSubject() {
+    return this.shareDataSubject;
+  }
+  public getArrayHistorial() {
+    return this.arrayHistorial;
+  }
   
 }

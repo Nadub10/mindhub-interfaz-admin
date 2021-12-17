@@ -10,6 +10,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { TablaViajesComponent } from './tabla-viajes/tabla-viajes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectViajesComponent } from './select-viajes/select-viajes.component';
+import { TablaHistorialComponent } from './tabla-historial/tabla-historial.component';
 
 
 
@@ -18,7 +19,8 @@ import { SelectViajesComponent } from './select-viajes/select-viajes.component';
     SideMenuComponent,
     FormRegistroComponent,
     TablaViajesComponent,
-    SelectViajesComponent
+    SelectViajesComponent,
+    TablaHistorialComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { SelectViajesComponent } from './select-viajes/select-viajes.component';
     SideMenuComponent,
     FormRegistroComponent,
     TablaViajesComponent,
-    SelectViajesComponent
+    SelectViajesComponent,
+    TablaHistorialComponent
   ]
 })
 export class ComponentsModule { }

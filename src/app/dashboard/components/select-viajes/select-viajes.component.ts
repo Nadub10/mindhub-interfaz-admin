@@ -12,9 +12,8 @@ export class SelectViajesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  @Output () valueResponse: EventEmitter<string> = new EventEmitter();
   @Output() selectionChange: EventEmitter<string>= new EventEmitter();
-  tipoViajes:string='viajesActivos'
+  tipoViajes:string='viajesPendientes'
   cambiaOpcion(){
     this.selectionChange.emit(this.tipoViajes)
   }
