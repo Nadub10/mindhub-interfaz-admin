@@ -11,6 +11,8 @@ import { TablaViajesComponent } from './tabla-viajes/tabla-viajes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectViajesComponent } from './select-viajes/select-viajes.component';
 import { TablaHistorialComponent } from './tabla-historial/tabla-historial.component';
+import { SelectListaComponent } from './select-lista/select-lista.component';
+import { TablaUsuariosComponent } from './tabla-usuarios/tabla-usuarios.component';
 
 
 
@@ -20,7 +22,9 @@ import { TablaHistorialComponent } from './tabla-historial/tabla-historial.compo
     FormRegistroComponent,
     TablaViajesComponent,
     SelectViajesComponent,
-    TablaHistorialComponent
+    TablaHistorialComponent,
+    SelectListaComponent,
+    TablaUsuariosComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +41,9 @@ import { TablaHistorialComponent } from './tabla-historial/tabla-historial.compo
     FormRegistroComponent,
     TablaViajesComponent,
     SelectViajesComponent,
-    TablaHistorialComponent
+    TablaHistorialComponent,
+    SelectListaComponent,
+    TablaUsuariosComponent
   ]
 })
 export class ComponentsModule { }

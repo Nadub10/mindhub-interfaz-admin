@@ -8,7 +8,7 @@ import { SelectViajesService } from '../../services/select-viajes.service';
 })
 export class SelectViajesComponent implements OnInit {
 
-  constructor(public selectViajes:SelectViajesService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

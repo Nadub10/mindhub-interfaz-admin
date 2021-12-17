@@ -1,0 +1,19 @@
+<mat-form-field appearance="outline">
+    <mat-label>Tipo de Usuario</mat-label>
+    <mat-select [(value)]="tipoUsuario" (valueChange)="cambiaOpcion()">
+      <mat-option  [value]="'clientes'">
+        Listado de Clientes
+      </mat-option>
+      <mat-option  [value]="'cadetes'">
+        Listado de Cadetes
+      </mat-option>
+      <mat-option  [value]="'admin'">
+        Listado de Administradores
+      </mat-option>
+      <mat-option  [value]="'todos'">
+        Todos los usuarios
+      </mat-option>
+    </mat-select>
+    
+  </mat-form-field>
+  {{tipoUsuario}}

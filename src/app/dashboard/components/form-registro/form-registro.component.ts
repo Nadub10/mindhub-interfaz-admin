@@ -18,7 +18,7 @@ export class FormRegistroComponent implements OnInit {
   
   }
   hide:boolean=true;
-  rolUsuario:string='Cliente';
+  rolUsuario:string='cliente';
   tipoVehiculo:string='moto'
   registerForm = new FormGroup({
     fullName: new FormControl('',
@@ -37,10 +37,11 @@ export class FormRegistroComponent implements OnInit {
       
       let u:Usuario = this.crearObjetoUsuario();
       //LA FUNCION SOLO TIENE Q HACER EL SET USER
-      this.crearUsuario.setUser(u);
+     this.crearUsuario.setUser(u);
       //DESDE EL BOTON DEL MODAL *ACEPTAR*SE TIENE Q EJECUTAR ESTE METODO
-      this.crearUsuario.crearUsuario('crear');
-      console.log(u)
+     this.crearUsuario.crearUsuario('crear');
+     // console.log(u)
+     // console.log(this.registerForm.value.vehicleName),
       formDirective.resetForm();
       
       this.registerForm.reset();
@@ -75,11 +76,22 @@ export class FormRegistroComponent implements OnInit {
     borrarUser(accion:string){
       return accion==='eliminar'?true:false;
     }
+
+    idVehiculo(vehicleName:string):number{
+      switch(vehicleName.toLowerCase()){
+        case 'bicicleta':
+          return 1
+        case 'moto':
+          return 2
+        default:
+          return 3
+      }
+    }
   
     vehiculo():Vehicle|null{
       if(this.rolUsuario==='cadete'){
         return {
-          id:0,
+          id:this.idVehiculo(this.registerForm.value.vehicleName),
           name:this.registerForm.value.vehicleName,
           isDeleted:0
         }

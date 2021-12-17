@@ -3,7 +3,6 @@ import { Observable, forkJoin, Subject } from 'rxjs';
 import { ViajesEquipos } from 'src/app/shared/interfaces/viajesEquipos';
 import { GetTravelsService } from './get-travels.service';
 import { sort, sortInverso } from './funciones';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Injectable({
   providedIn: 'root'

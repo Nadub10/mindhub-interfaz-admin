@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TraerUsuariosService } from '../../services/traer-usuarios.service';
 
 @Component({
   selector: 'app-listas',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListasComponent implements OnInit {
 
-  constructor() { }
+  constructor(public traerUsuarios:TraerUsuariosService) { }
 
   ngOnInit(): void {
+    this.infoTabla('clientes')
   }
-
+  infoTabla(parametro:string){
+    
+      this.traerUsuarios.traerUsuarios(parametro)
+       
+   
+  }
 }
