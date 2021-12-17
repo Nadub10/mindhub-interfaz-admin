@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TraerViajesService } from './services/traer-viajes.service';
 import { GetTravelsService } from './services/get-travels.service';
+import { DialogServiceService } from './services/dialog-service.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,6 @@ import { GetTravelsService } from './services/get-travels.service';
     FlexLayoutModule,
     ReactiveFormsModule
   ],
-  providers:[]
+  providers:[DialogServiceService]
 })
 export class DashboardModule { }

@@ -13,6 +13,7 @@ import { SelectViajesComponent } from './select-viajes/select-viajes.component';
 import { TablaHistorialComponent } from './tabla-historial/tabla-historial.component';
 import { SelectListaComponent } from './select-lista/select-lista.component';
 import { TablaUsuariosComponent } from './tabla-usuarios/tabla-usuarios.component';
+import { AccionesViajesComponent } from './acciones-viajes/acciones-viajes.component';
 
 
 
@@ -24,7 +25,8 @@ import { TablaUsuariosComponent } from './tabla-usuarios/tabla-usuarios.componen
     SelectViajesComponent,
     TablaHistorialComponent,
     SelectListaComponent,
-    TablaUsuariosComponent
+    TablaUsuariosComponent,
+    AccionesViajesComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { TablaUsuariosComponent } from './tabla-usuarios/tabla-usuarios.componen
     SelectViajesComponent,
     TablaHistorialComponent,
     SelectListaComponent,
-    TablaUsuariosComponent
+    TablaUsuariosComponent,
+    AccionesViajesComponent
   ]
 })
 export class ComponentsModule { }

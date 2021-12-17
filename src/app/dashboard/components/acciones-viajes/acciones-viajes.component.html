@@ -1,0 +1,61 @@
+<div class="wrapper">
+<div class="info-container">
+<h2 >Información del Viaje</h2>
+</div>
+<div class="descripcion-container">
+    <p *ngIf="(boton ==='detalle')">
+    <b>Cliente:</b>   {{infoViaje.travelEquipmentDTOs[0].equipment.cliente.fullName}} 
+    </p>
+    <p> <b>Dirección:</b>  {{infoViaje.travelEquipmentDTOs[0].equipment.cliente.address}} </p>
+    <div fxLayout="row" fxLayoutAlign="flex-start">
+        
+        <p> <b>Fecha:</b>   {{infoViaje.travelEquipmentDTOs[infoViaje.travelEquipmentDTOs.length -1].operationDate |date:'dd/MM/yyyy'}} </p>
+        <p style="margin-left:10px ;"> <b>Hora:</b>  {{infoViaje.travelEquipmentDTOs[infoViaje.travelEquipmentDTOs.length -1].operationDate |date:'shortTime':'+0200'}} </p>
+    </div>
+    
+    
+    <p><b>Equipo:</b> {{infoViaje.travelEquipmentDTOs[0].equipment.mark}} {{infoViaje.travelEquipmentDTOs[0].equipment.model}} </p>
+    
+    <p><b>Estado Actual Viaje:</b> {{infoViaje.lastStatusTravel.toString() | i18nSelect: statusTravelMap}} </p>
+</div>
+
+
+<form  class="registerForm" [formGroup]="updateForm" #formDirective=ngForm (ngSubmit)="submitForm(formDirective)" fxLayout="column">
+    <mat-form-field appearance="outline">
+        <mat-label>Nuevo Estado del Viaje</mat-label>
+        <mat-select [(value)]="estadoViaje" formControlName="estadoViaje">
+          <mat-option  [value]="option.value" *ngFor="let option of statusTravelArray">
+           {{option.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    <div class="warning-container" *ngIf="estadoViaje ==='2' || estadoViaje ==='3' || estadoViaje ==='6' ||
+    estadoViaje ==='7' || estadoViaje ==='8'">
+    <div class="texto" fxLayout="row">
+        <mat-icon >warning</mat-icon>
+        <p>Es necesario asignar un cadete para cambiar el estado del viaje!</p>
+    </div>
+        <mat-form-field  appearance="outline" color="primary" > 
+            <mat-label>Id Cadete </mat-label>
+            <input name="idCadete" matInput formControlName="idCadete"  id="idCadete" required>
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+    </div>
+    <div class="texto" fxLayout="row" *ngIf=" (infoViaje.lastStatusTravel !==2 &&
+        infoViaje.lastStatusTravel !==6) && (estadoViaje ==='10')">
+        <mat-icon>error</mat-icon>
+        <p>No se puede renunciar un viaje con estado {{infoViaje.lastStatusTravel.toString() | i18nSelect: statusTravelMap}} </p>
+    </div>
+    <mat-form-field  appearance="outline"> 
+        <mat-label>Observaciones</mat-label>
+        <input name="observaciones" matInput formControlName="observaciones" >
+        <mat-icon matSuffix> email</mat-icon>
+
+    </mat-form-field>
+    
+    
+    <button type="submit" mat-raised-button  color="primary" [disabled]="!updateForm.valid" mat-dialog-close>Confirmar</button>
+    <button type="button" mat-raised-button  color="basic" mat-dialog-close >Cancelar</button>
+    
+</form>
+</div>

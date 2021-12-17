@@ -5,6 +5,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ViajesEquipos } from 'src/app/shared/interfaces/viajesEquipos';
 import { TraerViajesService } from '../../services/traer-viajes.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogServiceService } from '../../services/dialog-service.service';
 
 
 @Component({
@@ -15,7 +17,7 @@ import { TraerViajesService } from '../../services/traer-viajes.service';
 export class TablaViajesComponent implements OnInit {
 
 
-  constructor(public traerViajes:TraerViajesService) {
+  constructor(public traerViajes:TraerViajesService, public dialogService:DialogServiceService) {
     
     
   }
@@ -62,6 +64,8 @@ export class TablaViajesComponent implements OnInit {
     '1': 'Pendiente a retirar', '2': 'Retiro asignado', '3': 'Retirado','4':'Pendiente de reparación',
     '5':'Reparado', '6':'Entrega asignada', '7':'Pendiente de entrega','8':'Entregado','9':'Recibido'
   };
+
+ 
 }
 
 
