@@ -29,23 +29,41 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-    <div class="warning-container" *ngIf="estadoViaje ==='2' || estadoViaje ==='3' || estadoViaje ==='6' ||
-    estadoViaje ==='7' || estadoViaje ==='8'">
+    <div class="warning-container" *ngIf="estadoViaje !==1 && estadoViaje !==5 && estadoViaje !==10">
     <div class="texto" fxLayout="row">
         <mat-icon >warning</mat-icon>
         <p>Es necesario asignar un cadete para cambiar el estado del viaje!</p>
     </div>
         <mat-form-field  appearance="outline" color="primary" > 
             <mat-label>Id Cadete </mat-label>
-            <input name="idCadete" matInput formControlName="idCadete"  id="idCadete" required>
+            <input name="idCadete" matInput formControlName="idCadete"  id="idCadete" type="number" >
             <mat-icon matSuffix>person</mat-icon>
         </mat-form-field>
     </div>
+    <div class="renuncia-container" *ngIf="(infoViaje.lastStatusTravel ===2 ||
+    infoViaje.lastStatusTravel ===6) && estadoViaje ===10">
+        <div class="texto" fxLayout="row">
+            <mat-icon >warning</mat-icon>
+            <p>Indica el nuevo estado del Viaje</p>
+        </div>
+        <mat-form-field appearance="outline">
+            <mat-label>Nuevo Estado del Viaje</mat-label>
+            <mat-select [(value)]="estadoRenuncia" formControlName="estadoViaje">
+              <mat-option  [value]="1" >
+               Pendiente a retirar
+              </mat-option>
+              <mat-option  [value]="5" >
+                Reparado
+               </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
     <div class="texto" fxLayout="row" *ngIf=" (infoViaje.lastStatusTravel !==2 &&
-        infoViaje.lastStatusTravel !==6) && (estadoViaje ==='10')">
+        infoViaje.lastStatusTravel !==6) && (estadoViaje ===10)">
         <mat-icon>error</mat-icon>
         <p>No se puede renunciar un viaje con estado {{infoViaje.lastStatusTravel.toString() | i18nSelect: statusTravelMap}} </p>
     </div>
+
     <mat-form-field  appearance="outline"> 
         <mat-label>Observaciones</mat-label>
         <input name="observaciones" matInput formControlName="observaciones" >
