@@ -17,6 +17,10 @@ export class CrearUsuarioService {
     this.user=user;
   }
 
+
+
+  
+
 //POR EL MOMENTO ESTA FUNCION SOLO CREA 1 USUARIO, NO LO MODIFICA
   //NI LO ELIMINA
   crearUsuario(accion:string){

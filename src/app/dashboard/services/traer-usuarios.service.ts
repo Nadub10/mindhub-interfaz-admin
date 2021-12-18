@@ -24,20 +24,20 @@ export class TraerUsuariosService {
         this.arrayBaseUsuarios=[...resp];
         this.arrayBaseUsuarios.sort(sortId);
         if(vista==='clientes'){
-          this.arrayFiltrado=this.arrayBaseUsuarios.filter((a) =>a.rol.id===3)
+          this.arrayFiltrado=this.arrayBaseUsuarios.filter((a) =>a.rol.id===3 && a.isDeleted ===false)
           this.arrayUsuarios.next(this.arrayFiltrado)
         }
         else if(vista==='cadetes'){
-          this.arrayFiltrado= this.arrayBaseUsuarios.filter((a) =>a.rol.id===2)
+          this.arrayFiltrado= this.arrayBaseUsuarios.filter((a) =>a.rol.id===2 && a.isDeleted ===false)
           this.arrayUsuarios.next(this.arrayFiltrado)
         }
         else if(vista==='admin'){
-          this.arrayFiltrado=this.arrayBaseUsuarios.filter((a) =>a.rol.id===1)
+          this.arrayFiltrado=this.arrayBaseUsuarios.filter((a) =>a.rol.id===1 && a.isDeleted ===false)
           this.arrayUsuarios.next(this.arrayFiltrado)
         }
         else{
-
-          this.arrayUsuarios.next(this.arrayBaseUsuarios)
+          this.arrayFiltrado=this.arrayBaseUsuarios.filter((a) => a.isDeleted ===false)
+          this.arrayUsuarios.next(this.arrayFiltrado)
           console.log('estoy en el else wii')
         }
       }

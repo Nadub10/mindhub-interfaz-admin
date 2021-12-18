@@ -14,6 +14,7 @@ import { TablaHistorialComponent } from './tabla-historial/tabla-historial.compo
 import { SelectListaComponent } from './select-lista/select-lista.component';
 import { TablaUsuariosComponent } from './tabla-usuarios/tabla-usuarios.component';
 import { AccionesViajesComponent } from './acciones-viajes/acciones-viajes.component';
+import { FormEditarUserComponent } from './form-editar-user/form-editar-user.component';
 
 
 
@@ -26,7 +27,8 @@ import { AccionesViajesComponent } from './acciones-viajes/acciones-viajes.compo
     TablaHistorialComponent,
     SelectListaComponent,
     TablaUsuariosComponent,
-    AccionesViajesComponent
+    AccionesViajesComponent,
+    FormEditarUserComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +48,8 @@ import { AccionesViajesComponent } from './acciones-viajes/acciones-viajes.compo
     TablaHistorialComponent,
     SelectListaComponent,
     TablaUsuariosComponent,
-    AccionesViajesComponent
+    AccionesViajesComponent,
+    FormEditarUserComponent
   ]
 })
 export class ComponentsModule { }

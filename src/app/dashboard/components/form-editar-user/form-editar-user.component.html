@@ -1,0 +1,180 @@
+<div class="modificar-content" *ngIf="boton==='modificar'" fxLayout="column"fxLayoutAlign="space-between center">
+  <h1>Editar Usuario</h1>
+<form  class="registerForm" [formGroup]="registerForm" #formDirective=ngForm (ngSubmit)="submitForm(formDirective)" fxLayout="column" >
+  <div class="seccion1" fxLayout="row" fxLayoutAlign="space-between center" >
+    <div class="group" fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="flex-start center">
+        <button mat-icon-button matSuffix (click)="hide = !hide" 
+         [attr.aria-pressed]="hide" matTooltip=" Ver Rol Actual"
+         type="button">
+          
+          <mat-icon>info</mat-icon>
+        </button> 
+        <p *ngIf="!hide" class="info-actual"> {{datosUsuario.rol.name}} </p>  
+      </div>
+    
+    <mat-form-field appearance="outline">
+          <mat-label>Nuevo Tipo de Usuario</mat-label>
+          <mat-select [(value)]="rolUsuario" formControlName="rolName">
+            <mat-option  [value]="'cadete'">
+              Cadete
+            </mat-option>
+            <mat-option  [value]="'cliente'">
+              Cliente
+            </mat-option>
+            <mat-option  [value]="'admin'">
+              Administrador
+            </mat-option>
+          </mat-select>
+          
+        </mat-form-field>
+      </div>
+      <div class="group" fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="flex-start center">
+          <button mat-icon-button matSuffix (click)="hide = !hide" 
+           [attr.aria-pressed]="hide"
+           matTooltip=" Ver Nombre y Apellido Actual"
+           type="button">
+            <mat-icon>info</mat-icon>
+          </button> 
+          <p *ngIf="!hide" class="info-actual">{{datosUsuario.fullName}} </p>
+        </div>
+      
+
+    <mat-form-field  appearance="outline" color="primary" > 
+        <mat-label> Nuevo Nombre y Apellido </mat-label>
+        <input name="nombre" matInput formControlName="fullName"  id="fullName"
+        >
+        <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+  </div>
+  </div>
+  <div class="seccion2" fxLayout="row">
+    <div class="group" fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="flex-start center">
+      <button mat-icon-button matSuffix (click)="hide = !hide" 
+       [attr.aria-pressed]="hide"
+       matTooltip="Ver Email Actual"
+       type="button">
+        <mat-icon>info</mat-icon>
+      </button> 
+    <p class="info-actual" *ngIf="!hide">{{datosUsuario.email}} </p>
+    </div>
+    <mat-form-field  appearance="outline"> 
+        <mat-label>Nuevo Email</mat-label>
+        <input name="email" matInput formControlName="email" >
+        <mat-icon matSuffix> email</mat-icon>
+
+    </mat-form-field>
+  </div>
+  <div class="group" fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="flex-start center">
+    <button mat-icon-button matSuffix (click)="hide = !hide" 
+     [attr.aria-pressed]="hide"
+     matTooltip="Ver Contraseña Actual"
+     type="button">
+      <mat-icon>info</mat-icon>
+    </button> 
+    <p class="info-actual" *ngIf="!hide">{{datosUsuario.password}} </p>
+  </div>
+    <mat-form-field  appearance="outline"> 
+
+        <mat-label>Nueva Contraseña</mat-label>
+        <input name="pass" matInput [type]="hide ? 'password' : 'text'" formControlName="password" >
+        <button mat-icon-button matSuffix (click)="hide = !hide" 
+        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"
+        type="button">
+        <mat-icon>  {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+  </div>
+  </div>
+  <div class="seccion3" fxLayout="row">
+    <div class="group" fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="flex-start center">
+        <button mat-icon-button matSuffix (click)="hide = !hide" 
+         [attr.aria-pressed]="hide"
+         matTooltip="Ver Dirección Actual"
+         type="button">
+          <mat-icon>info</mat-icon>
+        </button> 
+        <p class="info-actual" *ngIf="!hide">{{datosUsuario.address}} </p>
+      </div>
+    <mat-form-field  appearance="outline"> 
+        <mat-label>Nueva Dirección</mat-label>
+        <input name="direccion" matInput formControlName="address" >
+        <mat-icon matSuffix>home</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="group" fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="flex-start center">
+      <button mat-icon-button matSuffix (click)="hide = !hide" 
+       [attr.aria-pressed]="hide"
+       matTooltip="Ver Teléfono Actual"
+       type="button">
+        <mat-icon>info</mat-icon>
+      </button> 
+      <p class="info-actual" *ngIf="!hide">{{datosUsuario.cellPhone}} </p>
+    </div>
+    
+    <mat-form-field  appearance="outline"> 
+        <mat-label>Nuevo Teléfono</mat-label>
+        <input name="telefono" matInput formControlName="cellPhone" >
+        <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field>
+  </div>
+  </div>
+   
+    <div class="seccion4" *ngIf="rolUsuario ==='cadete' || datosUsuario.rol.id ===2" >
+      <div class="group">
+      <div  *ngIf="datosUsuario.rol.id !==2"  fxLayout="row">
+        <mat-icon >warning</mat-icon>
+        <p class="info-actual">No te olvides de asignarle un vehiculo a tu nuevo cadete!</p>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="flex-start center" *ngIf="datosUsuario.rol.id ===2">
+        <button mat-icon-button matSuffix (click)="hide = !hide" 
+        matTooltip="Ver Vehiculo Actual" [attr.aria-pressed]="hide"
+        type="button">
+          <mat-icon>info</mat-icon>
+        </button> 
+        <p class="info-actual" *ngIf="!hide">{{datosUsuario.vehicle?.name || '-'}} </p>
+      </div>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Vehiculo</mat-label>
+        <mat-select [(value)]="tipoVehiculo" formControlName="vehicleName">
+          <mat-option  [value]="'moto'">
+            Moto
+          </mat-option>
+          <mat-option  [value]="'auto'">
+            Auto
+          </mat-option>
+          <mat-option  [value]="'bicicleta'">
+            Bicicleta
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    </div>
+    <div class="seccion-btn" fxLayout="row" fxFlexAlign="center" fxLayoutAlign="space-evenly center">
+    <button  type="submit" mat-raised-button mat-dialog-close color="primary" [disabled]="!registerForm.valid" >Enviar</button>
+    <button type="button" mat-raised-button mat-dialog-close color="basic" (click)="clearForm(formDirective)" >Cancelar</button>
+  </div>
+</form>
+</div>
+
+<div class="ventanita" *ngIf="boton==='eliminar' " fxLayout="column" fxLayoutAlign="space-evenly center">
+  <div class="header-container" fxLayout="row" fxLayoutAlign="center center">
+  <button mat-fab color="warn" type="button">
+    <mat-icon>warning</mat-icon>
+  </button>
+  <h3>Eliminar Usuario</h3>
+</div>
+  <h2>¿Confirmás la operación?</h2>
+  <div class="seccion-btn2" fxLayout="row" fxLayoutAlign="space-evenly center" >
+    <button  type="submit" mat-raised-button mat-dialog-close color="primary" (click)="submitForm()" >Si</button>
+    <button type="button" mat-raised-button mat-dialog-close color="basic" >Cancelar</button>
+  </div>
+         
+</div>
+

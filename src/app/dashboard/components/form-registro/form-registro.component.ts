@@ -106,11 +106,21 @@ export class FormRegistroComponent implements OnInit {
           isDeleted:0
         }
       }
-      return {
-        id:3,
-        name:this.registerForm.value.rolName,
-        isDeleted:0
+      else if(this.rolUsuario==='admin'){
+        return {
+          id:1,
+          name:this.registerForm.value.rolName,
+          isDeleted:0
+        }
       }
+      else{
+        return {
+          id:3,
+          name:this.registerForm.value.rolName,
+          isDeleted:0
+        }
+      }
+      
     }
       
 }

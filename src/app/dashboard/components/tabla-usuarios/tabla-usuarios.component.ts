@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Usuario } from 'src/app/shared/interfaces/usuario';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { DialogServiceService } from '../../services/dialog-service.service';
 
 @Component({
   selector: 'app-tabla-usuarios',
@@ -12,7 +13,8 @@ import { MatSort } from '@angular/material/sort';
 })
 export class TablaUsuariosComponent implements OnInit {
 
-  constructor(private traerUsuarios:TraerUsuariosService) { }
+  constructor(private traerUsuarios:TraerUsuariosService,
+    public dialogService:DialogServiceService) { }
   loading:boolean=true;
   ngOnInit(): void {
     this.traerUsuarios.getArrayUsuarios().subscribe(

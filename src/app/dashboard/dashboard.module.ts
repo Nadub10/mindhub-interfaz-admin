@@ -13,9 +13,9 @@ import { TraerViajesService } from './services/traer-viajes.service';
 import { GetTravelsService } from './services/get-travels.service';
 import { DialogServiceService } from './services/dialog-service.service';
 
-@NgModule({
+@NgModule({ 
   declarations: [
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     CommonModule,
