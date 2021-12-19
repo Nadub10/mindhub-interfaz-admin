@@ -35,10 +35,14 @@ export class TraerUsuariosService {
           this.arrayFiltrado=this.arrayBaseUsuarios.filter((a) =>a.rol.id===1 && a.isDeleted ===false)
           this.arrayUsuarios.next(this.arrayFiltrado)
         }
+        else if(vista==='eliminados'){
+          this.arrayFiltrado=this.arrayBaseUsuarios.filter((a) => a.isDeleted ===true)
+          this.arrayUsuarios.next(this.arrayFiltrado)
+        }
         else{
           this.arrayFiltrado=this.arrayBaseUsuarios.filter((a) => a.isDeleted ===false)
           this.arrayUsuarios.next(this.arrayFiltrado)
-          console.log('estoy en el else wii')
+          //console.log('estoy en el else wii')
         }
       }
     )
