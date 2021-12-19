@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormGroupDirective } from '@angular/forms';
 import { LoginService } from '../../service/login.service';
 import { Route, Router } from '@angular/router';
-
+import Swal from'sweetalert2';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -38,25 +38,25 @@ export class LoginFormComponent implements OnInit {
         else{
           formDirective.resetForm();
           this.loginForm.reset();
-          alert('Esta web es para admin')
-          /* const config = new MatSnackBarConfig();
-          config.panelClass = ['mensaje-error'];
-          config.duration = 4000;
-  
-          this.snackBar.open('Esta web es solo para cadetes!',"OK",config); */
+          //alert('Esta web es para admin')
+          Swal.fire({
+            icon: 'error',
+            title: 'Esta web es sólo para Administradores!',
+            text: 'Ante cualquier error comunicate con soporte@todoit.com ',
+            
+          })
         }
         
       },
       error=>{
         formDirective.resetForm();
           this.loginForm.reset();
-          alert(error.error)
-          /* const config = new MatSnackBarConfig();
-          config.panelClass = ['mensaje-error'];
-          config.duration = 4000;
-  
-          this.snackBar.open(error.error,"OK",config); */
-        
+          Swal.fire({
+            icon: 'error',
+            title: error.error,
+            text:  'Ante cualquier error comunicate con soporte@todoit.com ',
+            
+          })
         console.log(error)
       }
       

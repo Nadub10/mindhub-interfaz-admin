@@ -70,9 +70,6 @@ export class AccionesViajesComponent implements OnInit {
       
       this.updateForm.reset();
     }
-    holis(){
-      Swal.fire('Any fool can use a computer')
-    }
     
 
     viajeModificado!:UpdateTravel;
