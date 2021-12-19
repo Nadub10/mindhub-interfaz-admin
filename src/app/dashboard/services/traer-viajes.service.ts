@@ -2,26 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable, forkJoin, Subject } from 'rxjs';
 import { ViajesEquipos } from 'src/app/shared/interfaces/viajesEquipos';
 import { GetTravelsService } from './get-travels.service';
-import { sort, sortInverso } from './funciones';
+import { sort, sortInverso, sort2, sortInverso2 } from './funciones';
 import { Operator } from 'src/app/shared/interfaces/operator';
 import { Equipment } from 'src/app/shared/interfaces/equipment';
-interface arrayBaseEquipos{
-  id:number,
-  lastStatusTravel:number,
-  operationDate:string,
-  observations?:string,
-  cadeteId?:number,
-  cadetefullName?:string,
-  
-  equipmentId:number,
-  equipmentMarca:string,
-  equipmentModelo:string,
-  equipmentFalla:string,
-  clienteId:number,
-  clienteFullName:string,
-  clienteEmail:string,
-  clienteDireccion:string
-}
+import { infoTablasViajesEquipos } from 'src/app/shared/interfaces/infoTablasViajesEquipos';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,13 +15,13 @@ export class TraerViajesService {
   constructor(private getTravels:GetTravelsService) { }
 
   arrayBaseViajes:ViajesEquipos[]=[];
-  viajesDisponibles:ViajesEquipos[]=[];
-  historialViajes:ViajesEquipos[]=[];
+  
   vista!:string;
   arrayStatusTravel!:number[];
-  public shareDataSubject = new Subject<ViajesEquipos[]>();
-  public arrayHistorial = new Subject<ViajesEquipos[]>();
-  public arrayPrueba = new Subject<arrayBaseEquipos[]>();
+  public arrayViajes = new Subject<infoTablasViajesEquipos[]>();
+
+  //SUBJECT CON TIPO PARA REESTRUCTURAR ARRAY
+  public arrayHistorial = new Subject<infoTablasViajesEquipos[]>();
   setStatusTravel(vista:string,...args:number[]){
     this.vista=vista;
     this.arrayStatusTravel=args;
@@ -56,37 +41,34 @@ export class TraerViajesService {
           return acc
         },[])
         
-        //console.log(this.dataSource)
-        if(this.vista.toLowerCase()==='historial'){
-          this.historialViajes=this.arrayBaseViajes.sort(sortInverso)
-          this.arrayHistorial.next(this.historialViajes)
-
-        }
-        else if(this.vista.toLowerCase()==='prueba'){
-          let arrayNuevo:arrayBaseEquipos [] = this.transformarArray(this.arrayBaseViajes);
-          this.arrayPrueba.next(arrayNuevo);
+        
+         if(this.vista.toLowerCase()==='historial'){
+          let arrayHistorialBase:infoTablasViajesEquipos [] = this.transformarArray(this.arrayBaseViajes);
+          arrayHistorialBase.sort(sortInverso2)
+          this.arrayHistorial.next(arrayHistorialBase);
         }
         else{
-          this.arrayBaseViajes.sort(sort);
-          this.shareDataSubject.next(this.arrayBaseViajes)
+          let nuevoArrayBaseViajes:infoTablasViajesEquipos [] = this.transformarArray(this.arrayBaseViajes);
+          nuevoArrayBaseViajes.sort(sort2);
+          this.arrayViajes.next(nuevoArrayBaseViajes);
+          
+          
         }
-       // console.log(this.arrayBaseViajes)
+       
       }
     )
   }
-  public getSubject() {
-    return this.shareDataSubject;
+  public getArrayViajes() {
+    return this.arrayViajes;
   }
   public getArrayHistorial() {
     return this.arrayHistorial;
   }
-  public getArrayNuevo() {
-    return this.arrayPrueba;
-  }
+
   
-  transformarArray(arrayViajes:ViajesEquipos[]):arrayBaseEquipos[]{
-    let arrayPrueba:arrayBaseEquipos[]=[];
-    let itemPrueba:arrayBaseEquipos;
+  transformarArray(arrayViajes:ViajesEquipos[]):infoTablasViajesEquipos[]{
+    let arrayPrueba:infoTablasViajesEquipos[]=[];
+    let itemPrueba:infoTablasViajesEquipos;
     arrayViajes.forEach(item=>{
       itemPrueba={
         id:item.id,
@@ -95,6 +77,9 @@ export class TraerViajesService {
         observations:item.travelEquipmentDTOs[item.travelEquipmentDTOs.length -1].observation,
         cadeteId:item.travelEquipmentDTOs[item.travelEquipmentDTOs.length -1].cadete?.id,
         cadetefullName:item.travelEquipmentDTOs[item.travelEquipmentDTOs.length -1].cadete?.fullName,
+        cadeteEmail:item.travelEquipmentDTOs[item.travelEquipmentDTOs.length -1].cadete?.email,
+        cadeteCellPhone:item.travelEquipmentDTOs[item.travelEquipmentDTOs.length -1].cadete?.cellPhone,
+        cadeteAddress:item.travelEquipmentDTOs[item.travelEquipmentDTOs.length -1].cadete?.address,
        
         equipmentId:item.travelEquipmentDTOs[item.travelEquipmentDTOs.length -1].equipment.id,
         equipmentMarca:item.travelEquipmentDTOs[item.travelEquipmentDTOs.length -1].equipment.mark,
@@ -103,7 +88,8 @@ export class TraerViajesService {
         clienteId:item.travelEquipmentDTOs[item.travelEquipmentDTOs.length -1].equipment.clientId,
         clienteFullName:item.travelEquipmentDTOs[item.travelEquipmentDTOs.length -1].equipment.cliente.fullName,
         clienteEmail:item.travelEquipmentDTOs[item.travelEquipmentDTOs.length -1].equipment.cliente.email,
-        clienteDireccion:item.travelEquipmentDTOs[item.travelEquipmentDTOs.length -1].equipment.cliente.address
+        clienteDireccion:item.travelEquipmentDTOs[item.travelEquipmentDTOs.length -1].equipment.cliente.address,
+        clienteCellPhone:item.travelEquipmentDTOs[item.travelEquipmentDTOs.length -1].equipment.cliente.cellPhone
       }
       arrayPrueba.push(itemPrueba);
     })

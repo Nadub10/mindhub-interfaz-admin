@@ -6,72 +6,16 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
   
-  <!-- <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
-  
-        
-      <ng-container matColumnDef="cadete.fullName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cadete </th>
-        <td mat-cell *matCellDef="let row"> {{row.travelEquipmentDTOs[row.travelEquipmentDTOs.length -1]?.cadete?.fullName || 'no tiene'}} </td>
-      </ng-container>
-      
-      <ng-container matColumnDef="cliente.fullName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cliente </th>
-        <td mat-cell *matCellDef="let row"> {{row.travelEquipmentDTOs[0].equipment.cliente.fullName}} </td>
-      </ng-container>
-  
-      
-      <ng-container matColumnDef="operationDate.fecha">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
-        <td mat-cell *matCellDef="let row"> {{row.travelEquipmentDTOs[row.travelEquipmentDTOs.length -1].operationDate |date:'dd/MM/yyyy'}} </td>
-      </ng-container>
-  
-      
-      <ng-container matColumnDef="operationDate.hora">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Hora </th>
-        <td mat-cell *matCellDef="let row"> {{row.travelEquipmentDTOs[row.travelEquipmentDTOs.length -1].operationDate |date:'shortTime':'+0200'}} </td>
-      </ng-container>
-
-      
-      <ng-container matColumnDef="lastStatusTravel">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado Viaje </th>
-        <td mat-cell *matCellDef="let row"> {{row.lastStatusTravel.toString() | i18nSelect: statusTravelMap }} </td>
-      </ng-container>
-      
-      <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
-        <td mat-cell *matCellDef="let row"> 
-          <button mat-icon-button  class="icon-info" matTooltip="Más Información">
-            <mat-icon>info</mat-icon>
-          </button>
-          
-          
-         
-        </td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  
-      
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-      </tr>
-    </table>
-  
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
-  </div> -->
-
     <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
   
         <!-- ID Column -->
-      <ng-container matColumnDef="cadete.fullName">
+      <ng-container matColumnDef="cadetefullName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Cadete </th>
         <td mat-cell *matCellDef="let row"> {{row?.cadetefullName || 'no tiene'}} </td>
       </ng-container>
       <!-- ID Column -->
-      <ng-container matColumnDef="cliente.fullName">
+      <ng-container matColumnDef="clienteFullName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Cliente </th>
         <td mat-cell *matCellDef="let row"> {{row.clienteFullName}} </td>
       </ng-container>
@@ -105,6 +49,8 @@
          
         </td>
       </ng-container>
+
+      
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -38,7 +38,7 @@
         <td mat-cell *matCellDef="let row"> {{row.email }} </td>
       </ng-container>
       <!-- Name Column -->
-      <ng-container matColumnDef="vehicle">
+      <ng-container matColumnDef="vehicle.name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Vehiculo </th>
         <td mat-cell *matCellDef="let row"> {{row?.vehicle?.name || '-'}} </td>
       </ng-container>

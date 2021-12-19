@@ -26,7 +26,7 @@ export class TablaUsuariosComponent implements OnInit {
       }
     )
   }
-  displayedColumns: string[] = ['fullName', 'rol.id', 'address','cellPhone','email','vehicle','acciones'];
+  displayedColumns: string[] = ['fullName', 'rol.id', 'address','cellPhone','email','vehicle.name','acciones'];
   dataSource!: MatTableDataSource<Usuario>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

@@ -17,7 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [],
@@ -39,7 +39,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatDialogModule,
     MatBottomSheetModule,
     MatProgressSpinnerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatExpansionModule
   ],
   exports:[
     CommonModule,
@@ -59,7 +60,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatDialogModule,
     MatBottomSheetModule,
     MatProgressSpinnerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatExpansionModule
   ]
 })
 export class MaterialModule { }

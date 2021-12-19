@@ -7,6 +7,7 @@ import { ViajesEquipos } from 'src/app/shared/interfaces/viajesEquipos';
 import { TraerViajesService } from '../../services/traer-viajes.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogServiceService } from '../../services/dialog-service.service';
+import { infoTablasViajesEquipos } from 'src/app/shared/interfaces/infoTablasViajesEquipos';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class TablaViajesComponent implements OnInit {
   }
    ngOnInit(): void {
     
-    this.traerViajes.getSubject().subscribe(
+    this.traerViajes.getArrayViajes().subscribe(
       resp=>{
         
         this.dataSource= new MatTableDataSource(resp);
@@ -38,8 +39,8 @@ export class TablaViajesComponent implements OnInit {
     
     
   }
-  displayedColumns: string[] = ['fullName', 'address', 'lastStatusTravel','acciones'];
-  dataSource!: MatTableDataSource<ViajesEquipos>;
+  displayedColumns: string[] = ['clienteFullName', 'clienteDireccion', 'lastStatusTravel','acciones'];
+  dataSource!: MatTableDataSource<infoTablasViajesEquipos>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

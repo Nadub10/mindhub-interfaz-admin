@@ -14,7 +14,7 @@ export class HistorialComponent implements OnInit {
     
     //console.log(this.traerViajes.getArrayHistorial())
    // this.traerViajes.setStatusTravel('historial',9);
-   this.traerViajes.setStatusTravel('prueba',9);
+   this.traerViajes.setStatusTravel('historial',9);
     this.traerViajes.traerViajes();
   }
 
