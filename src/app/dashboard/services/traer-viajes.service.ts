@@ -36,13 +36,16 @@ export class TraerViajesService {
           acc.push(...item)
           return acc
         },[])
-        this.arrayBaseViajes.sort(sort);
-        this.shareDataSubject.next(this.arrayBaseViajes)
+        
         //console.log(this.dataSource)
         if(this.vista.toLowerCase()==='historial'){
           this.historialViajes=this.arrayBaseViajes.sort(sortInverso)
           this.arrayHistorial.next(this.historialViajes)
 
+        }
+        else{
+          this.arrayBaseViajes.sort(sort);
+          this.shareDataSubject.next(this.arrayBaseViajes)
         }
        // console.log(this.arrayBaseViajes)
       }

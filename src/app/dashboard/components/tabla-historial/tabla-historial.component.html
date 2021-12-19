@@ -1,8 +1,8 @@
 <mat-spinner *ngIf="loading" diameter="50"></mat-spinner>
 
 <div class="tablita" *ngIf="!loading">
-<mat-form-field appearance="standard">
-    <mat-label>Filter</mat-label>
+<mat-form-field appearance="outline" class="mat-elevation-z8">
+    <mat-label>Buscar</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
   
@@ -44,10 +44,7 @@
           <button mat-icon-button color="dark" matTooltip="Más Información">
             <mat-icon>info</mat-icon>
           </button>
-          <button mat-icon-button color="warn" matTooltip="Pendiente Confirmacion"
-          *ngIf="row.lastStatusTravel ===8">
-            <mat-icon>warning</mat-icon>
-          </button>
+          
           
          
         </td>

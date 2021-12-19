@@ -25,6 +25,7 @@ $interfaz-admin-theme: mat.define-light-theme((
     primary: $interfaz-admin-primary,
     accent: $interfaz-admin-accent,
     warn: $interfaz-admin-warn,
+    light: #fff
   )
 ));
 
@@ -119,3 +120,12 @@ td.mat-cell {
   text-align: center !important;
   justify-content:center;
 }
+/* .mat-form-field-wrapper{
+ // padding: 0;
+ margin: 10px;
+}
+.ng-tns-c119-3{
+  background-color: burlywood;
+  
+} */
+

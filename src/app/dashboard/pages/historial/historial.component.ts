@@ -13,7 +13,8 @@ export class HistorialComponent implements OnInit {
   ngOnInit(): void {
     
     //console.log(this.traerViajes.getArrayHistorial())
-    
+    this.traerViajes.setStatusTravel('historial',9);
+    this.traerViajes.traerViajes();
   }
 
 }

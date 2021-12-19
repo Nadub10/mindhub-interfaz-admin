@@ -16,14 +16,14 @@ export class TablaHistorialComponent implements OnInit {
   loading:boolean=true;
 
   ngOnInit(): void {
-    this.traerViajes.setStatusTravel('historial',8,9);
+    this.traerViajes.setStatusTravel('historial',9);
     this.traerViajes.traerViajes();
     this.traerViajes.getArrayHistorial().subscribe(
       resp=>{
         //console.log(resp)
         this.dataSource= new MatTableDataSource(resp);
         this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+      
       this.loading=false;
       }
     ) 
@@ -32,6 +32,7 @@ export class TablaHistorialComponent implements OnInit {
   }
   
   ngAfterViewInit() {
+    
     
   }
   displayedColumns: string[] = ['cadete.fullName', 'cliente.fullName', 'operationDate.fecha','operationDate.hora','lastStatusTravel','acciones'];

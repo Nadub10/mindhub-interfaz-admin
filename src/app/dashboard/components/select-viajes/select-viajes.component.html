@@ -1,4 +1,4 @@
-<mat-form-field appearance="outline">
+<mat-form-field appearance="outline" >
     <mat-label>Tipo de Viaje</mat-label>
     <mat-select [(value)]="tipoViajes" (valueChange)="cambiaOpcion()">
       <mat-option  [value]="'viajesActivos'">
@@ -10,7 +10,13 @@
       <mat-option  [value]="'viajesEnCurso'">
         Viajes en Curso
       </mat-option>
+      <mat-option  [value]="'enTodoIT'">
+        Equipos en Todo IT
+      </mat-option>
+      <mat-option  [value]="'entregadosSinConfirmacion'">
+        Equipos Entregados
+      </mat-option>
     </mat-select>
     
   </mat-form-field>
-  {{tipoViajes}}
+  

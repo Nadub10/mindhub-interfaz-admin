@@ -1,16 +1,26 @@
 .wrapper{
-   // background-color: blueviolet;
-    min-height: 100%;
+   background-color: #403A40;
+    min-height: 90vh;
     padding: 30px;
     .select{
-      // background-color: cadetblue;
+      background-color: #fff;
         //margin-top: 30px;
        // margin-bottom: -20px;
+       padding: 5px;
+      
+       width: 250px;
+       height: 60px;
 
     }
     .tabla{
-     // background-color: chartreuse;
+      
         width: 80%;
-        margin-top: -20px;
+       // margin-top: -20px;
     }
+}
+.mat-elevation-z8{
+   background-color: #fff;
+   border-radius: 5px;
+   padding: 5px;
+   height: 57px;
 }

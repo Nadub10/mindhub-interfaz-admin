@@ -2,12 +2,12 @@
 <mat-spinner *ngIf="loading" diameter="50"></mat-spinner>
 
 <div *ngIf="!loading">
-<mat-form-field appearance="standard">
-    <mat-label>Filter</mat-label>
+<mat-form-field appearance="outline" color="primary" class="mat-elevation-z8">
+    <mat-label>Buscar</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
   
-  <div class="mat-elevation-z8">
+  <div class="mat-elevation-z8 tabla" >
     <table mat-table [dataSource]="dataSource" matSort>
   
       <!-- ID Column -->
@@ -55,6 +55,10 @@
           <button *ngIf="row.lastStatusTravel === 4" mat-icon-button color="primary" matTooltip="Marcar como Reparado"
           >
           <mat-icon>build</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" matTooltip="Confirmacion Pendiente"
+          *ngIf="row.lastStatusTravel ===8">
+            <mat-icon>warning</mat-icon>
           </button>
           <button mat-icon-button color="primary" matTooltip="Editar Viaje"
           (click)="this.dialogService.abrirVentanaEditViaje(row,'editar')">

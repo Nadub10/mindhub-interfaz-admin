@@ -1,9 +1,20 @@
+@use "../../../../styles.scss";
+@use "sass:map";
 .wrapper{
-    min-height: 100%;
+    background-color: #403A40;
+    min-height: 90vh;
     padding: 30px;
+    .titulo{
+        
+            @include styles.titulos(1.7rem,1.5);
+            padding: 20px 0;
+            margin: 0;
+           // background-color: powderblue;
+        
+    }
 }
 .tabla{
     width: 85%;
-    margin-top: -20px;
+    //margin-top: -20px;
     
 }

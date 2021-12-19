@@ -28,13 +28,25 @@ export class ViajesComponent implements OnInit {
   infoTabla(parametro:string){
     
     if(parametro==='viajesActivos'){
-      this.traerViajes.setStatusTravel('todos',1,2,3,4,5,6,7);
+      this.traerViajes.setStatusTravel('todos',1,2,3,4,5,6,7,8);
        this.traerViajes.traerViajes();
    
 
     }
     else if(parametro==='viajesPendientes'){
       this.traerViajes.setStatusTravel('todos',1,5);
+       this.traerViajes.traerViajes();
+  
+    
+    }
+    else if(parametro==='enTodoIT'){
+      this.traerViajes.setStatusTravel('todos',4);
+       this.traerViajes.traerViajes();
+  
+    
+    }
+    else if(parametro==='entregadosSinConfirmacion'){
+      this.traerViajes.setStatusTravel('todos',8);
        this.traerViajes.traerViajes();
   
     
