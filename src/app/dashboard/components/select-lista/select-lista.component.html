@@ -1,6 +1,6 @@
 <mat-form-field appearance="outline">
     <mat-label>Tipo de Usuario</mat-label>
-    <mat-select [(value)]="tipoUsuario" (valueChange)="cambiaOpcion()">
+    <mat-select [(value)]="this.selectUsuario.tipoUsuario" (valueChange)="cambiaOpcion()">
       <mat-option  [value]="'clientes'">
         Listado de Clientes
       </mat-option>

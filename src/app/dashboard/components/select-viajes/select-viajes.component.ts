@@ -8,13 +8,13 @@ import { SelectViajesService } from '../../services/select-viajes.service';
 })
 export class SelectViajesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public selectViajes:SelectViajesService) { }
 
   ngOnInit(): void {
   }
   @Output() selectionChange: EventEmitter<string>= new EventEmitter();
-  tipoViajes:string='viajesPendientes'
+  tipoViajes:string=this.selectViajes.tipoViajes
   cambiaOpcion(){
-    this.selectionChange.emit(this.tipoViajes)
+    this.selectionChange.emit(this.selectViajes.tipoViajes)
   }
 }

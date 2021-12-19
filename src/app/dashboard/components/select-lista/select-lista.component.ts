@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { SelectUsuarioService } from '../../services/select-usuario.service';
 
 @Component({
   selector: 'app-select-lista',
@@ -7,13 +8,13 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class SelectListaComponent implements OnInit {
 
-  constructor() { }
+  constructor(public selectUsuario:SelectUsuarioService) { }
 
   ngOnInit(): void {
   }
   @Output() selectionChange: EventEmitter<string>= new EventEmitter();
-  tipoUsuario:string='admin'
+  tipoUsuario:string=this.selectUsuario.tipoUsuario
   cambiaOpcion(){
-    this.selectionChange.emit(this.tipoUsuario)
+    this.selectionChange.emit(this.selectUsuario.tipoUsuario)
   }
 }

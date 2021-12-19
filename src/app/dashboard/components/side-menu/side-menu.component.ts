@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import Swal from'sweetalert2';
 @Component({
   selector: 'app-side-menu',
   templateUrl: './side-menu.component.html',
@@ -13,8 +13,22 @@ export class SideMenuComponent implements OnInit {
   ngOnInit(): void {
   }
   cerrarSesion(){
-    this.ruta.navigate(['/auth']);
+
+    Swal.fire({
+      title: '¿Estas seguro de cerrar sesión?',
+      
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.ruta.navigate(['/auth']);
    
-    localStorage.clear();
+        localStorage.clear();
+      } 
+    })
+    
   }
 }
+

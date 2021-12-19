@@ -19,7 +19,7 @@ export class ViajesComponent implements OnInit {
 
     
   ngOnInit(): void {
-    this.infoTabla('viajesPendientes');
+    this.infoTabla(this.selectViaje.tipoViajes);
     this.traerViajes.traerViajes();
     
   }

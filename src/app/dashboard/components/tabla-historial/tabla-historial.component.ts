@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ViajesEquipos } from 'src/app/shared/interfaces/viajesEquipos';
 import { infoTablasViajesEquipos } from 'src/app/shared/interfaces/infoTablasViajesEquipos';
+import { DialogServiceService } from '../../services/dialog-service.service';
 
 @Component({
   selector: 'app-tabla-historial',
@@ -13,7 +14,8 @@ import { infoTablasViajesEquipos } from 'src/app/shared/interfaces/infoTablasVia
 })
 export class TablaHistorialComponent implements OnInit {
 
-  constructor(private traerViajes:TraerViajesService) { }
+  constructor(private traerViajes:TraerViajesService,
+    public dialogService:DialogServiceService) { }
   loading:boolean=true;
 
   ngOnInit(): void {

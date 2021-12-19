@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { PostUserService } from './post-user.service';
 import { Usuario } from '../../shared/interfaces/usuario';
-import { MatSnackBarConfig } from '@angular/material/snack-bar';
-
+import Swal from'sweetalert2';
+import { Router } from '@angular/router';
+import { SelectUsuarioService } from './select-usuario.service';
+import { TraerUsuariosService } from './traer-usuarios.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,16 +12,15 @@ export class CrearUsuarioService {
 
   constructor(
     private postUser:PostUserService,
+    private route:Router,
+    private selectUsuario:SelectUsuarioService,
+    private traerUsuario:TraerUsuariosService
 
   ) { }
     user!:Usuario;
   setUser(user:Usuario){
     this.user=user;
   }
-
-
-
-  
 
 //POR EL MOMENTO ESTA FUNCION SOLO CREA 1 USUARIO, NO LO MODIFICA
   //NI LO ELIMINA
@@ -44,7 +45,12 @@ export class CrearUsuarioService {
         },
         error=>{
           console.log(error)
-          alert(error.error)
+          Swal.fire({
+            icon: 'error',
+            title: 'Algo salió mal!',
+            text: error.error,
+            
+          })
         }
       )
   }
@@ -52,31 +58,42 @@ export class CrearUsuarioService {
   
 
   accionesUpdateUser(accion:string){
-    const conf = new MatSnackBarConfig();
-    conf.panelClass = ['mensaje'];
-    conf.duration = 4000;
+    
     switch(accion.toLowerCase()){
       case 'crear':
-        alert('Usuario Creado con Exito')
-        /* this.snackBar.open('Viaje Seleccionado con Éxito!', 'OK',conf)
-        this.openLink(evento);
-        this.viajes.traerViajes('disponibles',undefined,1,5);
-        this.vistaSelect.selected='Viajes en Curso/Aceptados'; */
+        
+        Swal.fire({
+          icon: 'success',
+          title: 'Buen Trabajo!',
+          text: 'Usuario Creado con Exito',
+          
+        })
+        this.selectUsuario.tipoUsuario='todos';
+        this.traerUsuario.traerUsuarios('todos')
+        this.route.navigate(['dashboard/listas'])
         
         break;
       case 'modificar':
-        alert('Usuario modificado con Exito')
-        /* this.snackBar.open('Viaje Recolectado con Éxito!', 'OK',conf)
-        this.openLink(evento);
-        this.viajes.traerViajes('aceptados',this.accederLocalStorage.idCadete,2,6,3,7);
-        this.vistaSelect.selected='Viajes en Curso/Aceptados'; */
+        
+        Swal.fire({
+          icon: 'success',
+          title: 'Buen Trabajo!',
+          text: 'Usuario modificado con Exito',
+          
+        })
+        this.selectUsuario.tipoUsuario='todos';
+        this.traerUsuario.traerUsuarios('todos')
         break;
       case 'eliminar':
-        alert('Usuario Eliminado con Exito')
-        /* this.snackBar.open('Viaje Finalizado con Éxito!', 'OK',conf)
-        this.openLink(evento);
-        this.viajes.traerViajes('aceptados',this.accederLocalStorage.idCadete,2,6,3,7);
-        this.vistaSelect.selected='Viajes en Curso/Aceptados'; */
+        
+        Swal.fire({
+          icon: 'success',
+          title: 'Buen Trabajo!',
+          text: 'Usuario Eliminado con Exito',
+          
+        })
+        this.selectUsuario.tipoUsuario='eliminados';
+        this.traerUsuario.traerUsuarios('eliminados')
         break;
       
         
