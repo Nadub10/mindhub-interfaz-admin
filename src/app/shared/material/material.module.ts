@@ -18,7 +18,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import {MatRippleModule} from '@angular/material/core';
 @NgModule({
   declarations: [],
   imports: [
@@ -40,7 +40,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatBottomSheetModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatRippleModule
   ],
   exports:[
     CommonModule,
@@ -61,7 +62,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatBottomSheetModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatRippleModule
   ]
 })
 export class MaterialModule { }

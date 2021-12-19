@@ -27,4 +27,8 @@ th{
  .icon-info{
     color:#2962FF
  }
- 
+ .mat-row:hover .mat-cell {
+    border-color: #1DE9B6;
+    font-weight: bold;
+  }
+  

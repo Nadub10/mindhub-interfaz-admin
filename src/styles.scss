@@ -94,20 +94,7 @@ justify-content: $justify-content;
     }
 }
 
-/* .mensaje-error{
-  //background-color:$red-200;
-  color:map.get($colors, "negro");
-  font-weight: bold;
-  
-  
-}
-.mensaje-exito{
-  background-color:#64FFDA;
-  color:map.get($colors, "negro");
-  font-weight: bold;
-  
-  
-} */
+
 .mat-sort-header-container{
   text-align: center !important;
   justify-content:center;
@@ -120,14 +107,10 @@ td.mat-cell {
   text-align: center !important;
   justify-content:center;
 }
-/* .mat-form-field-wrapper{
- // padding: 0;
- margin: 10px;
+.mat-row:hover .mat-cell {
+  border-color: #1DE9B6;
+  font-weight: bold;
 }
-.ng-tns-c119-3{
-  background-color: burlywood;
-  
-} */
 
 .icon-edit{
   color:#1DE9B6;

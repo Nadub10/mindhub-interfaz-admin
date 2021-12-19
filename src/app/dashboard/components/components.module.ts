@@ -16,6 +16,7 @@ import { TablaUsuariosComponent } from './tabla-usuarios/tabla-usuarios.componen
 import { AccionesViajesComponent } from './acciones-viajes/acciones-viajes.component';
 import { FormEditarUserComponent } from './form-editar-user/form-editar-user.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { InfoViajeComponent } from './info-viaje/info-viaje.component';
 
 
 
@@ -29,7 +30,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     SelectListaComponent,
     TablaUsuariosComponent,
     AccionesViajesComponent,
-    FormEditarUserComponent
+    FormEditarUserComponent,
+    InfoViajeComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     SelectListaComponent,
     TablaUsuariosComponent,
     AccionesViajesComponent,
-    FormEditarUserComponent
+    FormEditarUserComponent,
+    InfoViajeComponent
   ]
 })
 export class ComponentsModule { }
