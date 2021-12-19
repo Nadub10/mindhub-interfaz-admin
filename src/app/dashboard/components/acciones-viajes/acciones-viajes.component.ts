@@ -5,7 +5,8 @@ import { FormGroup, FormControl, Validators, FormGroupDirective } from '@angular
 import { UpdateTravel } from '../../../shared/interfaces/update-travel';
 import { AccederLocalStorageService } from '../../services/acceder-local-storage.service';
 import { CambiarStatusTravelService } from '../../services/cambiar-status-travel.service';
-
+import { infoTablasViajesEquipos } from '../../../shared/interfaces/infoTablasViajesEquipos';
+import Swal from'sweetalert2';
 interface statusTravel {
   value: number;
   viewValue: string;
@@ -17,12 +18,13 @@ interface statusTravel {
 })
 export class AccionesViajesComponent implements OnInit {
 
-  infoViaje:ViajesEquipos;
+  infoViaje:infoTablasViajesEquipos;
   boton:string;
   estadoViaje:number;
+  //VER A DONDE LLEVA ESTO XQ SINO SIEMPRE SETEO LA RENUNCIA A 1
   estadoRenuncia:number=1;
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: {item:ViajesEquipos,boton:string},
+    @Inject(MAT_DIALOG_DATA) public data: {item:infoTablasViajesEquipos,boton:string},
     private accederLocalStorage:AccederLocalStorageService,
     private cambiarStatusTravel:CambiarStatusTravelService) {
       this.infoViaje=data.item;
@@ -68,6 +70,10 @@ export class AccionesViajesComponent implements OnInit {
       
       this.updateForm.reset();
     }
+    holis(){
+      Swal.fire('Any fool can use a computer')
+    }
+    
 
     viajeModificado!:UpdateTravel;
     crearObjetoUpdateTravel():UpdateTravel{

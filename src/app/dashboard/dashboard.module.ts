@@ -9,10 +9,9 @@ import { ComponentsSharedModule } from '../shared/components-shared/components-s
 import { MaterialModule } from '../shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { TraerViajesService } from './services/traer-viajes.service';
-import { GetTravelsService } from './services/get-travels.service';
 import { DialogServiceService } from './services/dialog-service.service';
 
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @NgModule({ 
   declarations: [
     DashboardComponent,
@@ -26,7 +25,8 @@ import { DialogServiceService } from './services/dialog-service.service';
     MaterialModule,
     FormsModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SweetAlert2Module
   ],
   providers:[DialogServiceService]
 })

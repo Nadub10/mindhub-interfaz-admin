@@ -4,7 +4,7 @@ import { AccederLocalStorageService } from './acceder-local-storage.service';
 import { PostTravelService } from './post-travel.service';
 import { ViajesEquipos } from 'src/app/shared/interfaces/viajesEquipos';
 import { UpdateTravel } from '../../shared/interfaces/update-travel';
-
+import Swal from'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
@@ -35,11 +35,23 @@ export class CambiarStatusTravelService {
    .subscribe(
      resp=>{
        console.log(resp)
-       alert('Viaje Modificado con Exito')
+       //alert('Viaje Modificado con Exito')
+       Swal.fire({
+        icon: 'success',
+        title: 'Buen Trabajo!',
+        text: 'Viaje Modificado con Exito!',
+        
+      })
      },
      error=>{
        console.log(error)
-       alert(error.error)
+       //alert(error.error)
+       Swal.fire({
+        icon: 'error',
+        title: 'Algo salió mal!',
+        text: error.error,
+        
+      })
      }
    )
  }

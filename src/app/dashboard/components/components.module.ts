@@ -15,6 +15,7 @@ import { SelectListaComponent } from './select-lista/select-lista.component';
 import { TablaUsuariosComponent } from './tabla-usuarios/tabla-usuarios.component';
 import { AccionesViajesComponent } from './acciones-viajes/acciones-viajes.component';
 import { FormEditarUserComponent } from './form-editar-user/form-editar-user.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 
@@ -38,7 +39,8 @@ import { FormEditarUserComponent } from './form-editar-user/form-editar-user.com
     AuthRoutingModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SweetAlert2Module
   ],
   exports:[
     SideMenuComponent,

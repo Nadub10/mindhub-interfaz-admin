@@ -4,17 +4,17 @@
 </div>
 <div class="descripcion-container">
     <p *ngIf="(boton ==='detalle')">
-    <b>Cliente:</b>   {{infoViaje.travelEquipmentDTOs[0].equipment.cliente.fullName}} 
+    <b>Cliente:</b>   {{infoViaje.clienteFullName}} 
     </p>
-    <p> <b>Dirección:</b>  {{infoViaje.travelEquipmentDTOs[0].equipment.cliente.address}} </p>
+    <p> <b>Dirección:</b>  {{infoViaje.clienteDireccion}} </p>
     <div fxLayout="row" fxLayoutAlign="flex-start">
         
-        <p> <b>Fecha:</b>   {{infoViaje.travelEquipmentDTOs[infoViaje.travelEquipmentDTOs.length -1].operationDate |date:'dd/MM/yyyy'}} </p>
-        <p style="margin-left:10px ;"> <b>Hora:</b>  {{infoViaje.travelEquipmentDTOs[infoViaje.travelEquipmentDTOs.length -1].operationDate |date:'shortTime':'+0200'}} </p>
+        <p> <b>Fecha:</b>   {{infoViaje.operationDate |date:'dd/MM/yyyy'}} </p>
+        <p style="margin-left:10px ;"> <b>Hora:</b>  {{infoViaje.operationDate |date:'shortTime':'+0200'}} </p>
     </div>
     
     
-    <p><b>Equipo:</b> {{infoViaje.travelEquipmentDTOs[0].equipment.mark}} {{infoViaje.travelEquipmentDTOs[0].equipment.model}} </p>
+    <p><b>Equipo:</b> {{infoViaje.equipmentMarca}} {{infoViaje.equipmentModelo}} </p>
     
     <p><b>Estado Actual Viaje:</b> {{infoViaje.lastStatusTravel.toString() | i18nSelect: statusTravelMap}} </p>
 </div>
@@ -74,6 +74,7 @@
     
     <button type="submit" mat-raised-button  color="primary" [disabled]="!updateForm.valid" mat-dialog-close>Confirmar</button>
     <button type="button" mat-raised-button  color="basic" mat-dialog-close >Cancelar</button>
+    
     
 </form>
 </div>
