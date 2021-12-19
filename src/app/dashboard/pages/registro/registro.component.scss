@@ -1,3 +1,15 @@
-.form-container{
-    width: 500px;
+@use "../../../../styles.scss";
+@use "sass:map";
+.wrapper{
+    min-height: 90vh;
+   // background-color: lightseagreen;
+   background-color: #363036;
+    .titulo{
+        @include styles.titulos(1.7rem,1.5);
+        padding: 20px 0;
+        margin: 0;
+       // background-color: powderblue;
+    }
+    .form-container{    
+        width: 650px}
 }

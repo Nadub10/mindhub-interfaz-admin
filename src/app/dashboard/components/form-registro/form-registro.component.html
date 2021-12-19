@@ -1,48 +1,75 @@
-<form  class="registerForm" [formGroup]="registerForm" #formDirective=ngForm (ngSubmit)="submitForm(formDirective)" fxLayout="column">
+
+<form  class="registerForm" [formGroup]="registerForm" #formDirective=ngForm (ngSubmit)="submitForm(formDirective)" fxLayout="column" fxLayoutAlign="center center" >
+  <div class="form-container">
+  <div class="seccion1" fxLayout="row"  >
+    <div class="group" fxLayout="column">
+      
     <mat-form-field appearance="outline">
-        <mat-label>Tipo de Usuario</mat-label>
-        <mat-select [(value)]="rolUsuario" formControlName="rolName">
-          <mat-option  [value]="'cadete'">
-            Cadete
-          </mat-option>
-          <mat-option  [value]="'cliente'">
-            Cliente
-          </mat-option>
-          <mat-option  [value]="'admin'">
-            Administrador
-          </mat-option>
-        </mat-select>
-        
-      </mat-form-field>
-    <mat-form-field  appearance="outline" color="primary" > 
-        <mat-label>Nombre y Apellido </mat-label>
-        <input name="nombre" matInput formControlName="fullName"  id="fullName">
-        <mat-icon matSuffix>person</mat-icon>
-    </mat-form-field>     
+          <mat-label> Tipo de Usuario</mat-label>
+          <mat-select [(value)]="rolUsuario" formControlName="rolName">
+            <mat-option  [value]="'cadete'">
+              Cadete
+            </mat-option>
+            <mat-option  [value]="'cliente'">
+              Cliente
+            </mat-option>
+            <mat-option  [value]="'admin'">
+              Administrador
+            </mat-option>
+          </mat-select>
+          
+        </mat-form-field>
+      </div>
+      <div class="group" fxLayout="column">
+          <mat-form-field  appearance="outline" color="primary" > 
+              <mat-label>Nombre y Apellido </mat-label>
+              <input name="nombre" matInput formControlName="fullName"  id="fullName"
+              >
+              <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+      </div>
+  </div>
+  <div class="seccion2" fxLayout="row">
+    <div class="group" fxLayout="column">
     <mat-form-field  appearance="outline"> 
         <mat-label>Email</mat-label>
         <input name="email" matInput formControlName="email" >
         <mat-icon matSuffix> email</mat-icon>
 
     </mat-form-field>
+  </div>
+  <div class="group" fxLayout="column">
     <mat-form-field  appearance="outline"> 
         <mat-label>Contraseña</mat-label>
         <input name="pass" matInput [type]="hide ? 'password' : 'text'" formControlName="password" >
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <button mat-icon-button matSuffix (click)="hide = !hide" 
+        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"
+        type="button">
         <mat-icon>  {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
     </mat-form-field>
+  </div>
+  </div>
+  <div class="seccion3" fxLayout="row">
+    <div class="group" fxLayout="column">  
     <mat-form-field  appearance="outline"> 
         <mat-label>Dirección</mat-label>
         <input name="direccion" matInput formControlName="address" >
         <mat-icon matSuffix>home</mat-icon>
     </mat-form-field>
+  </div>
+  <div class="group" fxLayout="column">
     <mat-form-field  appearance="outline"> 
         <mat-label>Teléfono</mat-label>
         <input name="telefono" matInput formControlName="cellPhone" >
         <mat-icon matSuffix>phone</mat-icon>
     </mat-form-field>
-    <mat-form-field *ngIf="rolUsuario ==='cadete'" appearance="outline">
+  </div>
+  </div>
+   
+    <div class="seccion4" *ngIf="rolUsuario ==='cadete' " >
+      <div class="group">
+    <mat-form-field appearance="outline">
         <mat-label>Vehiculo</mat-label>
         <mat-select [(value)]="tipoVehiculo" formControlName="vehicleName">
           <mat-option  [value]="'moto'">
@@ -56,7 +83,11 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-    <button type="submit" mat-raised-button  color="primary" [disabled]="!registerForm.valid" >Enviar</button>
+    </div>
+    </div>
+  </div>
+    <div class="seccion-btn" fxLayout="row" fxFlexAlign="center" fxLayoutAlign="space-evenly center">
+    <button  type="submit" mat-raised-button  color="primary" [disabled]="!registerForm.valid" >Enviar</button>
     <button type="button" mat-raised-button  color="basic" (click)="clearForm(formDirective)" >Cancelar</button>
-    
+  </div>
 </form>
