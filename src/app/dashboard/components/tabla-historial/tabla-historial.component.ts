@@ -4,7 +4,25 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ViajesEquipos } from 'src/app/shared/interfaces/viajesEquipos';
-
+import { Operator } from 'src/app/shared/interfaces/operator';
+import { Equipment } from 'src/app/shared/interfaces/equipment';
+interface arrayBaseEquipos{
+  id:number,
+  lastStatusTravel:number,
+  operationDate:string,
+  observations?:string,
+  cadeteId?:number,
+  cadetefullName?:string,
+  
+  equipmentId:number,
+  equipmentMarca:string,
+  equipmentModelo:string,
+  equipmentFalla:string,
+  clienteId:number,
+  clienteFullName:string,
+  clienteEmail:string,
+  clienteDireccion:string
+}
 @Component({
   selector: 'app-tabla-historial',
   templateUrl: './tabla-historial.component.html',
@@ -16,9 +34,9 @@ export class TablaHistorialComponent implements OnInit {
   loading:boolean=true;
 
   ngOnInit(): void {
-    this.traerViajes.setStatusTravel('historial',9);
+    this.traerViajes.setStatusTravel('prueba',9);
     this.traerViajes.traerViajes();
-    this.traerViajes.getArrayHistorial().subscribe(
+    this.traerViajes.getArrayNuevo().subscribe(
       resp=>{
         //console.log(resp)
         this.dataSource= new MatTableDataSource(resp);
@@ -36,7 +54,7 @@ export class TablaHistorialComponent implements OnInit {
     
   }
   displayedColumns: string[] = ['cadete.fullName', 'cliente.fullName', 'operationDate.fecha','operationDate.hora','lastStatusTravel','acciones'];
-  dataSource!: MatTableDataSource<ViajesEquipos>;
+  dataSource!: MatTableDataSource<arrayBaseEquipos>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
