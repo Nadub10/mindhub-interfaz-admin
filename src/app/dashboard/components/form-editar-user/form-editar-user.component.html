@@ -4,13 +4,13 @@
   <div class="seccion1" fxLayout="row" fxLayoutAlign="space-between center" >
     <div class="group" fxLayout="column">
       <div fxLayout="row" fxLayoutAlign="flex-start center">
-        <button mat-icon-button matSuffix (click)="hide = !hide" 
-         [attr.aria-pressed]="hide" matTooltip=" Ver Rol Actual"
+        <button mat-icon-button matSuffix (click)="hideRol = !hideRol" 
+         [attr.aria-pressed]="hideRol" matTooltip=" Ver Rol Actual"
          type="button">
           
           <mat-icon>info</mat-icon>
         </button> 
-        <p *ngIf="!hide" class="info-actual"> {{datosUsuario.rol.name}} </p>  
+        <p *ngIf="!hideRol" class="info-actual"> {{datosUsuario.rol.name}} </p>  
       </div>
     
     <mat-form-field appearance="outline">
@@ -31,13 +31,13 @@
       </div>
       <div class="group" fxLayout="column">
         <div fxLayout="row" fxLayoutAlign="flex-start center">
-          <button mat-icon-button matSuffix (click)="hide = !hide" 
-           [attr.aria-pressed]="hide"
+          <button mat-icon-button matSuffix (click)="hideName = !hideName" 
+           [attr.aria-pressed]="hideName"
            matTooltip=" Ver Nombre y Apellido Actual"
            type="button">
             <mat-icon>info</mat-icon>
           </button> 
-          <p *ngIf="!hide" class="info-actual">{{datosUsuario.fullName}} </p>
+          <p *ngIf="!hideName" class="info-actual">{{datosUsuario.fullName}} </p>
         </div>
       
 
@@ -52,13 +52,13 @@
   <div class="seccion2" fxLayout="row">
     <div class="group" fxLayout="column">
       <div fxLayout="row" fxLayoutAlign="flex-start center">
-      <button mat-icon-button matSuffix (click)="hide = !hide" 
-       [attr.aria-pressed]="hide"
+      <button mat-icon-button matSuffix (click)="hideEmail = !hideEmail" 
+       [attr.aria-pressed]="hideEmail"
        matTooltip="Ver Email Actual"
        type="button">
         <mat-icon>info</mat-icon>
       </button> 
-    <p class="info-actual" *ngIf="!hide">{{datosUsuario.email}} </p>
+    <p class="info-actual" *ngIf="!hideEmail">{{datosUsuario.email}} </p>
     </div>
     <mat-form-field  appearance="outline"> 
         <mat-label>Nuevo Email</mat-label>
@@ -69,13 +69,13 @@
   </div>
   <div class="group" fxLayout="column">
     <div fxLayout="row" fxLayoutAlign="flex-start center">
-    <button mat-icon-button matSuffix (click)="hide = !hide" 
-     [attr.aria-pressed]="hide"
+    <button mat-icon-button matSuffix (click)="hidePass = !hidePass" 
+     [attr.aria-pressed]="hidePass"
      matTooltip="Ver Contraseña Actual"
      type="button">
       <mat-icon>info</mat-icon>
     </button> 
-    <p class="info-actual" *ngIf="!hide">{{datosUsuario.password}} </p>
+    <p class="info-actual" *ngIf="!hidePass">{{datosUsuario.password}} </p>
   </div>
     <mat-form-field  appearance="outline"> 
 
@@ -92,13 +92,13 @@
   <div class="seccion3" fxLayout="row">
     <div class="group" fxLayout="column">
       <div fxLayout="row" fxLayoutAlign="flex-start center">
-        <button mat-icon-button matSuffix (click)="hide = !hide" 
-         [attr.aria-pressed]="hide"
+        <button mat-icon-button matSuffix (click)="hideAddress = !hideAddress" 
+         [attr.aria-pressed]="hideAddress"
          matTooltip="Ver Dirección Actual"
          type="button">
           <mat-icon>info</mat-icon>
         </button> 
-        <p class="info-actual" *ngIf="!hide">{{datosUsuario.address}} </p>
+        <p class="info-actual" *ngIf="!hideAddress">{{datosUsuario.address}} </p>
       </div>
     <mat-form-field  appearance="outline"> 
         <mat-label>Nueva Dirección</mat-label>
@@ -108,13 +108,13 @@
   </div>
   <div class="group" fxLayout="column">
     <div fxLayout="row" fxLayoutAlign="flex-start center">
-      <button mat-icon-button matSuffix (click)="hide = !hide" 
-       [attr.aria-pressed]="hide"
+      <button mat-icon-button matSuffix (click)="hideCellPhone = !hideCellPhone" 
+       [attr.aria-pressed]="hideCellPhone"
        matTooltip="Ver Teléfono Actual"
        type="button">
         <mat-icon>info</mat-icon>
       </button> 
-      <p class="info-actual" *ngIf="!hide">{{datosUsuario.cellPhone}} </p>
+      <p class="info-actual" *ngIf="!hideCellPhone">{{datosUsuario.cellPhone}} </p>
     </div>
     
     <mat-form-field  appearance="outline"> 
@@ -132,12 +132,12 @@
         <p class="info-actual">No te olvides de asignarle un vehiculo a tu nuevo cadete!</p>
       </div>
       <div fxLayout="row" fxLayoutAlign="flex-start center" *ngIf="datosUsuario.rol.id ===2">
-        <button mat-icon-button matSuffix (click)="hide = !hide" 
-        matTooltip="Ver Vehiculo Actual" [attr.aria-pressed]="hide"
+        <button mat-icon-button matSuffix (click)="hideVehicle = !hideVehicle" 
+        matTooltip="Ver Vehiculo Actual" [attr.aria-pressed]="hideVehicle"
         type="button">
           <mat-icon>info</mat-icon>
         </button> 
-        <p class="info-actual" *ngIf="!hide">{{datosUsuario.vehicle?.name || '-'}} </p>
+        <p class="info-actual" *ngIf="!hideVehicle">{{datosUsuario.vehicle?.name || '-'}} </p>
       </div>
 
     <mat-form-field appearance="outline">

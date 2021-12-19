@@ -27,6 +27,14 @@ export class FormEditarUserComponent implements OnInit {
   
   }
   hide:boolean=true;
+  hidePass:boolean=true;
+  hideRol:boolean=true;
+  hideName:boolean=true;
+  hideEmail:boolean=true;
+  hideAddress:boolean=true;
+  hideCellPhone:boolean=true;
+  hideVehicle:boolean=true;
+
   rolUsuario:string='cliente';
   tipoVehiculo:string='moto'
   registerForm = new FormGroup({
