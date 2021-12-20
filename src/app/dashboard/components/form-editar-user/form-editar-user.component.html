@@ -177,4 +177,18 @@
   </div>
          
 </div>
+<div class="ventanita" *ngIf="boton==='reactivar' " fxLayout="column" fxLayoutAlign="space-evenly center">
+  <div class="header-container" fxLayout="row" fxLayoutAlign="center center">
+  <button mat-fab color="warn" type="button">
+    <mat-icon>warning</mat-icon>
+  </button>
+  <h3>Reactivar Usuario</h3>
+</div>
+  <h2>¿Confirmás la operación?</h2>
+  <div class="seccion-btn2" fxLayout="row" fxLayoutAlign="space-evenly center" >
+    <button  type="submit" mat-raised-button mat-dialog-close color="primary" (click)="submitForm()" >Si</button>
+    <button type="button" mat-raised-button mat-dialog-close color="basic" >Cancelar</button>
+  </div>
+         
+</div>
 

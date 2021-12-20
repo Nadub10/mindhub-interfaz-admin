@@ -95,6 +95,18 @@ export class CrearUsuarioService {
         this.selectUsuario.tipoUsuario='eliminados';
         this.traerUsuario.traerUsuarios('eliminados')
         break;
+
+        case 'reactivar':
+        
+        Swal.fire({
+          icon: 'success',
+          title: 'Buen Trabajo!',
+          text: 'Usuario Reactivado con Exito',
+          
+        })
+        this.selectUsuario.tipoUsuario='todos';
+        this.traerUsuario.traerUsuarios('todos')
+        break;
       
         
     }

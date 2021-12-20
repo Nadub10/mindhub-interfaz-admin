@@ -46,6 +46,10 @@
       <ng-container matColumnDef="acciones">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
         <td mat-cell *matCellDef="let row"> 
+          <button mat-icon-button class="icon-info" matTooltip="Más Información"
+          (click)="this.dialogService.abrirVentanaInfoUser(row,'info')">
+            <mat-icon>info</mat-icon>
+          </button>
           <button *ngIf="row.isDeleted ===false"  mat-icon-button class=" icon-edit" matTooltip="Editar Usuario"
           (click)="this.dialogService.abrirVentanaEditUser(row,'modificar')">
             <mat-icon>edit</mat-icon>
@@ -55,7 +59,7 @@
             <mat-icon>delete</mat-icon>
           </button>
           <button *ngIf="row.isDeleted ===true" mat-icon-button color="warn" matTooltip="Reactivar Usuario"
-          (click)="this.dialogService.abrirVentanaEditUser(row,'modificar')">
+          (click)="this.dialogService.abrirVentanaEditUser(row,'reactivar')">
           <mat-icon> sentiment_satisfied_alt</mat-icon>
           </button>
           

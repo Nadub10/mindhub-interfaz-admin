@@ -45,7 +45,11 @@
           (click)="this.dialogService.abrirVentanaInfoViaje(row,'info')">
             <mat-icon>info</mat-icon>
           </button>
-          
+          <button mat-icon-button  matTooltip="Ver Observaciones"
+          *ngIf="row.observations !==null"
+          (click)="this.dialogService.abrirVentanaInfoViaje(row,'info')">
+          <mat-icon>notification_important</mat-icon>
+          </button>
           
          
         </td>

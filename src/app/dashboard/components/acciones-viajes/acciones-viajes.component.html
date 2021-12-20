@@ -1,7 +1,7 @@
-<div class="wrapper">
+<div class="wrapper" fxLayout="column" fxLayoutAlign="center center">
 <div class="info-container">
 <h2 >Información del Viaje</h2>
-</div>
+
 <div class="descripcion-container">
     <p> <b>Dirección:</b>  {{infoViaje.clienteDireccion}} </p>
     <div fxLayout="row" fxLayoutAlign="flex-start">
@@ -15,7 +15,7 @@
     
     <p><b>Estado Actual Viaje:</b> {{infoViaje.lastStatusTravel.toString() | i18nSelect: statusTravelMap}} </p>
 </div>
-
+</div>
 
 <form  class="registerForm" [formGroup]="updateForm" #formDirective=ngForm (ngSubmit)="submitForm(formDirective)" fxLayout="column">
     <mat-form-field appearance="outline">
@@ -63,15 +63,15 @@
 
     <mat-form-field  appearance="outline" > 
         <mat-label>Observaciones</mat-label>
-        <input name="observaciones" matInput formControlName="observaciones" >
-        <mat-icon matSuffix> email</mat-icon>
+        <textarea  name="observaciones" matInput  formControlName="observaciones" ></textarea>
+        
 
     </mat-form-field>
     
-    
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
     <button type="submit" mat-raised-button  color="primary" [disabled]="!updateForm.valid" mat-dialog-close>Confirmar</button>
     <button type="button" mat-raised-button  color="basic" mat-dialog-close >Cancelar</button>
-    
+</div>
     
 </form>
 </div>

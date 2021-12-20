@@ -35,30 +35,15 @@
           (click)="this.dialogService.abrirVentanaInfoViaje(row,'info')">
             <mat-icon>info</mat-icon>
           </button>
-          <button *ngIf="row.lastStatusTravel === 1 || row.lastStatusTravel === 5" mat-icon-button class="icon-grab" matTooltip="Marcar como Asignado"
-          >
-          <mat-icon>touch_app</mat-icon>
-          </button>
-          <button *ngIf="row.lastStatusTravel === 2 || row.lastStatusTravel === 6" mat-icon-button class="icon-truck" matTooltip="Marcar como Retirado"
-          >
-          <mat-icon>local_shipping</mat-icon>
-          </button>
-          <button *ngIf="row.lastStatusTravel === 2 || row.lastStatusTravel === 6" mat-icon-button color="warn" matTooltip="Renunciar Viaje"
-          >
-            <mat-icon>delete</mat-icon>
-          </button>
           
-          <button *ngIf="row.lastStatusTravel === 3|| row.lastStatusTravel === 7" mat-icon-button class="icon-done" matTooltip="Marcar como Finalizado"
-          >
-          <mat-icon>done_outline</mat-icon>
-          </button>
-          <button *ngIf="row.lastStatusTravel === 4" mat-icon-button class="icon-fix" matTooltip="Marcar como Reparado"
-          >
-          <mat-icon>build</mat-icon>
-          </button>
           <button mat-icon-button color="accent" matTooltip="Confirmacion Pendiente"
           *ngIf="row.lastStatusTravel ===8">
             <mat-icon>warning</mat-icon>
+          </button>
+          <button mat-icon-button  matTooltip="Ver Observaciones"
+          *ngIf="row.observations !==null"
+          (click)="this.dialogService.abrirVentanaInfoViaje(row,'info')">
+          <mat-icon>notification_important</mat-icon>
           </button>
           <button mat-icon-button class="icon-edit" matTooltip="Editar Viaje"
           (click)="this.dialogService.abrirVentanaEditViaje(row,'editar')">

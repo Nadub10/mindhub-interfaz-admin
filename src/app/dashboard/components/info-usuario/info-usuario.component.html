@@ -1,1 +1,55 @@
-<p>info-usuario works!</p>
+<div class="wrapper"fxLayout="column" fxLayoutAlign="center flex-start ">
+    <div class="info-container">
+        <h2 >Información del Usuario</h2>
+        </div>
+        <div class="descripcion-container">
+            <p><b>Id Usuario:</b> {{datosUsuario.id}} </p>
+            <p><b>Tipo de Usuario:</b> {{datosUsuario.rol.name}} </p> 
+            <p><b>Observaciones:</b> {{datosUsuario?.observations || 'Sin Observaciones'}} </p>            
+        </div>
+    
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Datos Personales
+              </mat-panel-title>
+              <mat-icon>person</mat-icon>
+            </mat-expansion-panel-header>
+            <p><b>Nombre y Apellido:</b>{{datosUsuario.fullName}} </p>
+            <p><b>Dirección:</b> {{datosUsuario.address}} </p>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Datos de Contacto
+              </mat-panel-title>
+              <mat-icon> phone</mat-icon>
+            </mat-expansion-panel-header>
+            <p><b>Email:</b> {{datosUsuario.email}} </p>
+            <p><b>Teléfono:</b> {{datosUsuario.cellPhone}} </p>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Datos de la Cuenta
+              </mat-panel-title>
+              <mat-icon>account_circle</mat-icon>
+            </mat-expansion-panel-header>
+            <p><b>Contraseña:</b> {{datosUsuario.password}} </p>
+            <p><b>Usuario Aceptado:</b> {{datosUsuario.isAccepted === true? 'Si':'No'}} </p>
+            <p><b>Usuario Eliminado:</b> {{datosUsuario.isDeleted === true? 'Si':'No'}} </p>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle *ngIf="datosUsuario.rol.id ===2">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Datos del Vehiculo
+              </mat-panel-title>
+              <mat-icon> local_shipping</mat-icon>
+            </mat-expansion-panel-header>
+            <p><b>Vehiculo Registrado:</b> {{datosUsuario.vehicle?.name}} </p>
+        </mat-expansion-panel>
+    
+         
+            
+    
+    </div>

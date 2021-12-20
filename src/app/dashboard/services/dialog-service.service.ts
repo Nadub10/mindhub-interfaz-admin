@@ -6,6 +6,7 @@ import { AccionesViajesComponent } from '../components/acciones-viajes/acciones-
 import { FormEditarUserComponent } from '../components/form-editar-user/form-editar-user.component';
 import { infoTablasViajesEquipos } from '../../shared/interfaces/infoTablasViajesEquipos';
 import { InfoViajeComponent } from '../components/info-viaje/info-viaje.component';
+import { InfoUsuarioComponent } from '../components/info-usuario/info-usuario.component';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,11 @@ export class DialogServiceService {
   }
   abrirVentanaInfoViaje(item:infoTablasViajesEquipos,boton:string): void {
     this.dialog.open(InfoViajeComponent, {
+      data: {item,boton}
+    });
+  }
+  abrirVentanaInfoUser(item:Usuario,boton:string): void {
+    this.dialog.open(InfoUsuarioComponent, {
       data: {item,boton}
     });
   }
