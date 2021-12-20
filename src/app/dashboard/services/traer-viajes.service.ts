@@ -58,6 +58,87 @@ export class TraerViajesService {
       }
     )
   }
+  
+   arrayDisponiblesPrueba!:infoTablasViajesEquipos [];
+   arrayenCursoPrueba!:infoTablasViajesEquipos []
+   arrayPendientesPrueba!:infoTablasViajesEquipos []
+   arrayEntregadosPrueba!:infoTablasViajesEquipos [];
+   arraysinConfirmarPrueba!:infoTablasViajesEquipos [];
+   arrayenTODOITPrueba!:infoTablasViajesEquipos []
+  traerViajesdashboard(vista:string,...args:number[]){
+    let array:Observable<ViajesEquipos[]>[]=[];
+    args.forEach(i=>{
+      array.push(this.getTravels.getTravels(i));
+    })
+    forkJoin([...array])
+    .subscribe(
+      resp => {
+        this.arrayBaseViajes=resp.reduce((acc,item)=>{
+          acc.push(...item)
+          return acc
+        },[])
+        
+        
+         if(vista==='activos'){
+          this.arrayDisponiblesPrueba = this.transformarArray(this.arrayBaseViajes);
+          this.arraypruebadas.next(this.arrayDisponiblesPrueba);
+
+        }
+        else if(vista==='pendientes'){
+          this.arrayPendientesPrueba = this.transformarArray(this.arrayBaseViajes);
+          this.arrayPendiente.next(this.arrayPendientesPrueba);
+
+        }
+        else if(vista==='entregados'){
+          this.arrayEntregadosPrueba = this.transformarArray(this.arrayBaseViajes);
+          this.arrayEntregados.next(this.arrayEntregadosPrueba);
+
+        }
+        else if(vista==='sinConfirmar'){
+          this.arraysinConfirmarPrueba = this.transformarArray(this.arrayBaseViajes);
+          this.arraySinConfirmar.next(this.arraysinConfirmarPrueba);
+
+        }
+        else if(vista==='enTodoIT'){
+          this.arrayenTODOITPrueba = this.transformarArray(this.arrayBaseViajes);
+          this.arrayENTODOIT.next(this.arrayenTODOITPrueba);
+
+        }
+        else{
+          this.arrayenCursoPrueba = this.transformarArray(this.arrayBaseViajes);
+          this.arrayEncurso.next(this.arrayenCursoPrueba);
+          
+        }
+        
+       
+      }
+    )
+  }
+  public arraypruebadas = new Subject<infoTablasViajesEquipos[]>();
+  public getArrayPrueba() {
+    return this.arraypruebadas;
+  }
+  public arrayEncurso = new Subject<infoTablasViajesEquipos[]>();
+  public getArrayenCurso() {
+    return this.arrayEncurso;
+  }
+  public arrayPendiente = new Subject<infoTablasViajesEquipos[]>();
+  public getarrayPendiente() {
+    return this.arrayPendiente;
+  }
+  public arrayENTODOIT = new Subject<infoTablasViajesEquipos[]>();
+  public getArrayentodoIT() {
+    return this.arrayENTODOIT;
+  }
+  public arrayEntregados = new Subject<infoTablasViajesEquipos[]>();
+  public getArrayentregados() {
+    return this.arrayEntregados;
+  }
+  public arraySinConfirmar = new Subject<infoTablasViajesEquipos[]>();
+  public getArraySinconfirmar() {
+    return this.arraySinConfirmar;
+  }
+
   public getArrayViajes() {
     return this.arrayViajes;
   }

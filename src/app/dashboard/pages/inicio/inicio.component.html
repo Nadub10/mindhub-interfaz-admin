@@ -1,6 +1,88 @@
-<div class="wrapper">
+<div class="wrapper"  fxLayout="column" fxLayoutAlign="center center">
     <div class="row1">
-        <img src="" alt="">
-        
+        <h1 class="titulo mat-elevation-z6">Tu resumen del día</h1>
     </div>
+    <mat-divider></mat-divider>
+    <div class="viajes-container">
+        <h2 class="mat-elevation-z6">Viajes</h2>
+        <div class="cards-container" fxflex fxLayout >
+            <mat-card class="mat-elevation-z6" fxflex fxLayout fxLayoutAlign="space-evenly center">
+                <div  fxLayout="column" fxLayoutAlign=" flex-start center">
+                <mat-card-subtitle class="subtitulo">Viajes Activos</mat-card-subtitle>
+                <div fxflex fxLayout >
+                    <mat-spinner diameter="20" color="primary" *ngIf="loading"></mat-spinner>
+                    <mat-card-title *ngIf="!loading" class="nro">{{arrayPruebita.length }}</mat-card-title>
+                    <mat-icon *ngIf="!loading">trending_up</mat-icon>
+                </div>
+                </div>
+                  <img mat-card-md-image src="../../../../assets/img/delivery.png" >
+              </mat-card>
+
+              <mat-card class="mat-elevation-z6" fxflex fxLayout fxLayoutAlign="space-evenly center">
+                <div  fxLayout="column" fxLayoutAlign=" flex-start center">
+                <mat-card-subtitle class="subtitulo">Viajes Pendientes</mat-card-subtitle>
+                <div fxflex fxLayout >
+                    <mat-spinner diameter="20" color="primary" *ngIf="loading"></mat-spinner>
+                    <mat-card-title *ngIf="!loading" class="nro">{{arrayPendiente.length }}</mat-card-title>
+                    <mat-icon *ngIf="!loading">trending_up</mat-icon>
+                </div>
+                </div>
+                  <img mat-card-md-image src="../../../../assets/img/delivery.png" >
+              </mat-card>
+              <mat-card class="mat-elevation-z6" fxflex fxLayout fxLayoutAlign="space-evenly center">
+                <div  fxLayout="column" fxLayoutAlign=" flex-start center">
+                <mat-card-subtitle class="subtitulo">Viajes en Curso</mat-card-subtitle>
+                <div fxflex fxLayout >
+                    <mat-spinner diameter="20" color="primary" *ngIf="loading"></mat-spinner>
+                    <mat-card-title *ngIf="!loading" class="nro">{{arrayencurso.length }}</mat-card-title>
+                    <mat-icon *ngIf="!loading">trending_up</mat-icon>
+                </div>
+                </div>
+                  <img mat-card-md-image src="../../../../assets/img/delivery.png" >
+              </mat-card>
+              
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="equipos-container">
+        <h2 class="mat-elevation-z6">Equipos</h2>
+        <div class="cards-container" fxflex fxLayout>
+            <mat-card class="mat-elevation-z6" fxflex fxLayout fxLayoutAlign="space-evenly center">
+                <div  fxLayout="column" fxLayoutAlign=" flex-start center">
+                <mat-card-subtitle class="subtitulo">Equipos en TODO IT</mat-card-subtitle>
+                <div fxflex fxLayout >
+                    <mat-spinner diameter="20" color="primary" *ngIf="loading"></mat-spinner>
+                    <mat-card-title *ngIf="!loading" class="nro">{{arrayentodoit.length }}</mat-card-title>
+                    <mat-icon *ngIf="!loading">trending_up</mat-icon>
+                </div>
+                </div>
+                  <img mat-card-md-image src="../../../../assets/img/delivery.png" >
+              </mat-card>
+            <mat-card class="mat-elevation-z6" fxflex fxLayout fxLayoutAlign="space-evenly center">
+                <div  fxLayout="column" fxLayoutAlign=" flex-start center">
+                <mat-card-subtitle class="subtitulo">Equipos Entregados</mat-card-subtitle>
+                <div fxflex fxLayout >
+                    <mat-spinner diameter="20" color="primary" *ngIf="loading"></mat-spinner>
+                    <mat-card-title *ngIf="!loading" class="nro">{{arrayentregados.length }}</mat-card-title>
+                    <mat-icon *ngIf="!loading">trending_up</mat-icon>
+                </div>
+                </div>
+                  <img mat-card-md-image src="../../../../assets/img/delivery.png" >
+              </mat-card>
+              <mat-card class="mat-elevation-z6" fxflex fxLayout fxLayoutAlign="space-evenly center">
+                <div  fxLayout="column" fxLayoutAlign=" flex-start center">
+                <mat-card-subtitle class="subtitulo">Equipos Pendientes de Confirmación</mat-card-subtitle>
+                <div fxflex fxLayout >
+                    <mat-spinner diameter="20" color="primary" *ngIf="loading"></mat-spinner>
+                    <mat-card-title *ngIf="!loading" class="nro">{{arraysinconfirmar.length }}</mat-card-title>
+                    <mat-icon *ngIf="!loading">trending_up</mat-icon>
+                </div>
+                </div>
+                  <img mat-card-md-image src="../../../../assets/img/delivery.png" >
+              </mat-card>
+              
+        </div>
+    </div>
+    
+    
 </div>

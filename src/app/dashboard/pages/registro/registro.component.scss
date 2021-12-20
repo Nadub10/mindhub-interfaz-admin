@@ -4,11 +4,16 @@
     min-height: 100%;
    // background-color: lightseagreen;
    background-color: #403A40;
+   background-image:url('../../../../assets/img/blob-scene-haikei.png');
+   background-size: cover;
     .titulo{
-        @include styles.titulos(1.7rem,1.5);
-        padding: 20px 0;
-        margin: 0;
-       // background-color: powderblue;
+       @include styles.titulos(1.7rem,1.5);
+            padding: 5px 0;
+            margin: 0;
+            background-color: #fff;
+            border-radius: 5px;
+            color:#000;
+            width: 25%;
     }
     .form-container{    
         width: 650px}

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AccederLocalStorageService } from './services/acceder-local-storage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,11 +7,14 @@ import { AccederLocalStorageService } from './services/acceder-local-storage.ser
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private accederLocalStorage:AccederLocalStorageService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
-  nombre:string=this.accederLocalStorage.nombreAdmin;
+  objeto=JSON.parse(localStorage.getItem('adminLogged')!);
+nombre1:string = this.objeto.fullName || '';
+fin=this.nombre1.indexOf(' ');
+nombre=this.nombre1.slice(0,this.fin)
   sideBarOpen=true;
   sideBarToggler(){
     this.sideBarOpen=!this.sideBarOpen;

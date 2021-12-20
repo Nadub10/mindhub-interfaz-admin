@@ -12,6 +12,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { DialogServiceService } from './services/dialog-service.service';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { AccederLocalStorageService } from './services/acceder-local-storage.service';
+import { CrearUsuarioService } from './services/crear-usuario.service';
+import { GetTravelsService } from './services/get-travels.service';
+import { GetUsersService } from './services/get-users.service';
+import { PostTravelService } from './services/post-travel.service';
+import { PostUserService } from './services/post-user.service';
+import { SelectUsuarioService } from './services/select-usuario.service';
+import { TraerUsuariosService } from './services/traer-usuarios.service';
+import { TraerViajesService } from './services/traer-viajes.service';
 @NgModule({ 
   declarations: [
     DashboardComponent,
@@ -28,6 +37,9 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     ReactiveFormsModule,
     SweetAlert2Module
   ],
-  providers:[DialogServiceService]
+  providers:[DialogServiceService,
+            AccederLocalStorageService,
+          CrearUsuarioService,
+        GetTravelsService,GetUsersService,PostTravelService,PostUserService,SelectUsuarioService,TraerUsuariosService,TraerViajesService]
 })
 export class DashboardModule { }
