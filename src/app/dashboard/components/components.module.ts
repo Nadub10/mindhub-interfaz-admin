@@ -17,6 +17,7 @@ import { AccionesViajesComponent } from './acciones-viajes/acciones-viajes.compo
 import { FormEditarUserComponent } from './form-editar-user/form-editar-user.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { InfoViajeComponent } from './info-viaje/info-viaje.component';
+import { InfoUsuarioComponent } from './info-usuario/info-usuario.component';
 
 
 
@@ -31,7 +32,8 @@ import { InfoViajeComponent } from './info-viaje/info-viaje.component';
     TablaUsuariosComponent,
     AccionesViajesComponent,
     FormEditarUserComponent,
-    InfoViajeComponent
+    InfoViajeComponent,
+    InfoUsuarioComponent
   ],
   imports: [
     CommonModule,

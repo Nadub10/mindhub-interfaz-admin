@@ -8,12 +8,20 @@ import { TraerViajesService } from '../../services/traer-viajes.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogServiceService } from '../../services/dialog-service.service';
 import { infoTablasViajesEquipos } from 'src/app/shared/interfaces/infoTablasViajesEquipos';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 
 @Component({
   selector: 'app-tabla-viajes',
   templateUrl: './tabla-viajes.component.html',
-  styleUrls: ['./tabla-viajes.component.scss']
+  styleUrls: ['./tabla-viajes.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class TablaViajesComponent implements OnInit {
 
@@ -22,6 +30,7 @@ export class TablaViajesComponent implements OnInit {
     
     
   }
+  expandedElement!: infoTablasViajesEquipos | null;
    ngOnInit(): void {
     
     this.traerViajes.getArrayViajes().subscribe(

@@ -1,1 +1,54 @@
-<p>info-viaje works!</p>
+<div class="wrapper"fxLayout="column" fxLayoutAlign="center flex-start ">
+<div class="info-container">
+    <h2 >Información del Viaje</h2>
+    </div>
+    <div class="descripcion-container">
+        <div fxLayout="row" fxLayoutAlign="flex-start">
+            <p> <b>Fecha:</b>{{infoViaje.operationDate |date:'dd/MM/yyyy'}} </p>
+            <p style="margin-left:10px ;"> <b>Hora:</b> {{infoViaje.operationDate |date:'shortTime':'+0200'}} </p>
+        </div>
+        <p><b>Estado Actual Viaje:</b> {{infoViaje.lastStatusTravel.toString() | i18nSelect: statusTravelMap}} </p>
+        <p><b>Observaciones:</b> {{infoViaje?.observations || 'Sin Observaciones'}} </p>
+    </div>
+
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Datos del Cliente
+          </mat-panel-title>
+          <mat-icon>account_circle</mat-icon>
+        </mat-expansion-panel-header>
+        <p><b>Id Cliente:</b>{{infoViaje.clienteId}} </p>
+        <p><b>Nombre y Apellido:</b>{{infoViaje.clienteFullName}} </p>
+        <p><b>Dirección:</b> {{infoViaje.clienteDireccion}} </p>
+        <p><b>Email:</b> {{infoViaje.clienteEmail}} </p>
+        <p><b>Teléfono:</b> {{infoViaje.clienteCellPhone}} </p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Datos del Equipo
+          </mat-panel-title>
+          <mat-icon>devices</mat-icon>
+        </mat-expansion-panel-header>
+        <p><b>Id Equipo:</b>{{infoViaje.equipmentId}} </p>
+        <p><b>Marca:</b>  {{infoViaje.equipmentMarca}} </p>
+        <p><b>Modelo:</b> {{infoViaje.equipmentModelo}}</p>
+        <p><b>Falla:</b>{{infoViaje.equipmentFalla}} </p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel *ngIf="infoViaje.cadeteId !== null" hideToggle >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Datos del Cadete
+          </mat-panel-title>
+          <mat-icon> local_shipping</mat-icon>
+        </mat-expansion-panel-header>
+        <p><b>Id Cadete:</b>{{infoViaje?.cadeteId }} </p>
+        <p><b>Nombre y Apellido:</b>  {{infoViaje.cadetefullName}} </p>
+        <p><b>Teléfono:</b> {{infoViaje.cadeteCellPhone}}</p>
+        <p><b>Email:</b>{{infoViaje.cadeteEmail}} </p>
+      </mat-expansion-panel>
+
+</div>
