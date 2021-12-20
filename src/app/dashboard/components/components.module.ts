@@ -18,8 +18,9 @@ import { FormEditarUserComponent } from './form-editar-user/form-editar-user.com
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { InfoViajeComponent } from './info-viaje/info-viaje.component';
 import { InfoUsuarioComponent } from './info-usuario/info-usuario.component';
+import { GraficoAreaComponent } from './grafico-area/grafico-area.component';
 
-
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { InfoUsuarioComponent } from './info-usuario/info-usuario.component';
     AccionesViajesComponent,
     FormEditarUserComponent,
     InfoViajeComponent,
-    InfoUsuarioComponent
+    InfoUsuarioComponent,
+    GraficoAreaComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +46,8 @@ import { InfoUsuarioComponent } from './info-usuario/info-usuario.component';
     FlexLayoutModule,
     ReactiveFormsModule,
     FormsModule,
-    SweetAlert2Module
+    SweetAlert2Module,
+    HighchartsChartModule
   ],
   exports:[
     SideMenuComponent,
@@ -56,7 +59,8 @@ import { InfoUsuarioComponent } from './info-usuario/info-usuario.component';
     TablaUsuariosComponent,
     AccionesViajesComponent,
     FormEditarUserComponent,
-    InfoViajeComponent
+    InfoViajeComponent,
+    GraficoAreaComponent
   ]
 })
 export class ComponentsModule { }

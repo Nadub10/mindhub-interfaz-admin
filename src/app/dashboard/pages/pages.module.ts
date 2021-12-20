@@ -12,7 +12,7 @@ import { ComponentsModule } from '../components/components.module';
 import { ComponentsSharedModule } from '../../shared/components-shared/components-shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
-
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 @NgModule({
@@ -31,7 +31,8 @@ import { FormsModule } from '@angular/forms';
     ComponentsModule,
     ComponentsSharedModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    HighchartsChartModule
   ]
 })
 export class PagesModule { }

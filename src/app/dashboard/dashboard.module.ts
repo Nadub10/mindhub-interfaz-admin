@@ -10,7 +10,7 @@ import { MaterialModule } from '../shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DialogServiceService } from './services/dialog-service.service';
-
+import { HighchartsChartModule } from 'highcharts-angular';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @NgModule({ 
   declarations: [
