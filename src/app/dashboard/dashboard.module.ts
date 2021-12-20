@@ -38,8 +38,6 @@ import { TraerViajesService } from './services/traer-viajes.service';
     SweetAlert2Module
   ],
   providers:[DialogServiceService,
-            AccederLocalStorageService,
-          CrearUsuarioService,
-        GetTravelsService,GetUsersService,PostTravelService,PostUserService,SelectUsuarioService,TraerUsuariosService,TraerViajesService]
+            ]
 })
 export class DashboardModule { }
