@@ -1,7 +1,7 @@
-<app-header ></app-header>
+<app-header (sidenavToggle)="sideBarToggler()"></app-header>
 <mat-drawer-container >
-    <mat-drawer mode="side" opened >
-        <h1 class="saludo">Hola {{nombre}}! </h1>
+    <mat-drawer mode="side" [opened]="sideBarOpen" >
+        <!-- <h1 class="saludo">Hola {{nombre}}! </h1> -->
         <mat-divider></mat-divider>
         <app-side-menu></app-side-menu>
     </mat-drawer>
@@ -10,13 +10,4 @@
         <router-outlet></router-outlet>
     </mat-drawer-content>
 </mat-drawer-container>
-<!-- <mat-sidenav-container fxHide.gt-sm>
-    <mat-sidenav #sidenav >
-        <h1 class="saludo" *ngIf="nombre">Hola {{nombre}}! </h1>
-        <app-side-menu (sidenavClose)="sidenav.close()"></app-side-menu>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
-</mat-sidenav-container> -->
+

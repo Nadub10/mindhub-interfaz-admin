@@ -3,10 +3,44 @@
    
     height: 70px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .img-container{
+       // background-color: powderblue;
+        display: flex;
     
+    align-items: center;
+    }
 
     .logo{
         height: 70px;
+        
       
     }
+}
+.user-image{
+    width: 35px;
+    margin: 0 5px;
+}
+.user{
+    color: #fff;
+}
+.menu-icon{
+    color: white;
+}
+
+.contenedor{
+   // background-color: orangered;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 90%;
+    .divis{
+        
+      //  background-color: palegreen;
+    }
+}
+button{
+    background: transparent;
+
 }

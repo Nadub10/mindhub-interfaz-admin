@@ -12,23 +12,6 @@ export class SideMenuComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  cerrarSesion(){
-
-    Swal.fire({
-      title: '¿Estas seguro de cerrar sesión?',
-      
-      showCancelButton: true,
-      confirmButtonText: 'Si',
-      
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        this.ruta.navigate(['/auth']);
-   
-        localStorage.clear();
-      } 
-    })
-    
-  }
+  
 }
 

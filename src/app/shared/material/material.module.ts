@@ -19,6 +19,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRippleModule} from '@angular/material/core';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [],
   imports: [
@@ -41,7 +42,9 @@ import {MatRippleModule} from '@angular/material/core';
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatExpansionModule,
-    MatRippleModule
+    MatRippleModule,
+    MatMenuModule
+    
   ],
   exports:[
     CommonModule,
@@ -63,7 +66,8 @@ import {MatRippleModule} from '@angular/material/core';
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatExpansionModule,
-    MatRippleModule
+    MatRippleModule,
+    MatMenuModule
   ]
 })
 export class MaterialModule { }

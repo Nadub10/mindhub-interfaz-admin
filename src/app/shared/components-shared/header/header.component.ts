@@ -9,8 +9,8 @@ import { AccederLocalStorageService } from 'src/app/dashboard/services/acceder-l
 export class HeaderComponent implements OnInit {
 
   @Output() sidenavToggle = new EventEmitter();
-  constructor(public accederLocalStorage:AccederLocalStorageService) { }
-
+  constructor() { }
+  
   ngOnInit(): void {
   }
   onToggleSidenav(){

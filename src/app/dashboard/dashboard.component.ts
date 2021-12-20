@@ -12,5 +12,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  nombre:string=this.accederLocalStorage.nombreAdmin;
+ // nombre:string=this.accederLocalStorage.nombreAdmin;
+  sideBarOpen=true;
+  sideBarToggler(){
+    this.sideBarOpen=!this.sideBarOpen;
+  }
 }
