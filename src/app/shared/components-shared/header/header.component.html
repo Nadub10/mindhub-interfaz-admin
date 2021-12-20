@@ -5,18 +5,18 @@
         </a>
     </div>
     
-        <div class="contenedor" >
+        <div class="contenedor" *ngIf="adminLogeado" >
         <button mat-icon-button (click)="onToggleSidenav()" >
             <mat-icon class="menu-icon" >menu</mat-icon>
         </button>
         <div class="divis">
             <button mat-button [matMenuTriggerFor]="menu" class="user">
                 <img src="../../../../assets/img/user.png" alt="" class="user-image">
-                <!-- {{this.accederLocalStorage.fullNameAdmin}} -->
+                {{fullNameAdmin}}
                 <mat-icon class="user-image-icon">keyboard_arrow_down</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-                <button mat-menu-item >
+                <button mat-menu-item (click)="cerrarSesion()">
                     <mat-icon>exit_to_app</mat-icon>
                     Cerrar Sesión
                 </button>

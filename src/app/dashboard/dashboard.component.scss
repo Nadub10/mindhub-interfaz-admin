@@ -1,7 +1,5 @@
 mat-drawer-container{
-    min-height: 90%;
-    //height: 90%;
-    max-height: 100%;
+    height: calc(100vh - 70px);
     
     mat-drawer{
         //background-color: lightpink;
@@ -18,6 +16,9 @@ mat-drawer-container{
             width: 90%;
             margin: 0 auto ;
         }
+    }
+    met-drawer-content{
+        background-color: #403A40;
     }
     
 }
