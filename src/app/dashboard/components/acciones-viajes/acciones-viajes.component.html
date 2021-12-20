@@ -31,11 +31,18 @@
         <mat-icon >warning</mat-icon>
         <p>Es necesario asignar un cadete para cambiar el estado del viaje!</p>
     </div>
-        <mat-form-field  appearance="outline" color="primary" > 
-            <mat-label>Id Cadete </mat-label>
-            <input name="idCadete" matInput formControlName="idCadete"  id="idCadete" type="number" >
+        <p><b>Cadete Actual del Viaje:</b> {{infoViaje?.cadeteId || 'Ninguno'}}- {{infoViaje?.cadetefullName || '-'}} </p>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Nuevo Cadete</mat-label>
+            <mat-select [(value)]="idCadete" formControlName="idCadete">
+              <mat-option  [value]="option.id" *ngFor="let option of arrayCadetes">
+               {{option.id}} - {{option.fullName}}
+              </mat-option>
+            </mat-select>
             <mat-icon matSuffix>person</mat-icon>
-        </mat-form-field>
+          </mat-form-field>
+        
     </div>
     <div class="renuncia-container" *ngIf="(infoViaje.lastStatusTravel ===2 ||
     infoViaje.lastStatusTravel ===6) && estadoViaje ===10">

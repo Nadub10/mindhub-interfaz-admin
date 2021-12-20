@@ -1,3 +1,38 @@
 .btn-nav{
     margin: 10px 0;
 }
+p{
+    margin: 0;
+}
+mat-nav-list{
+
+}
+mat-list-item{
+    color:#242325 !important;
+    font-size: 1rem;
+    height: 44px !important;
+    margin-bottom: 4px;
+    font-weight: 500;
+    
+    
+    ::ng-deep{
+        .mat-list-item-content{
+            border-radius: 5px;
+            margin: 0 8px;
+            
+        }
+    }
+}
+.list-item-active{
+    ::ng-deep{
+        .mat-list-item-content{
+            background-color: #64FFDA;
+            
+        }
+    }
+}
+
+mat-icon{
+    vertical-align: center;
+    margin-right: 1rem;
+}

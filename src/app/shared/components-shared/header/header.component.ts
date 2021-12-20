@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { AccederLocalStorageService } from 'src/app/dashboard/services/acceder-local-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Output() sidenavToggle = new EventEmitter();
-  constructor() { }
+  constructor(public accederLocalStorage:AccederLocalStorageService) { }
 
   ngOnInit(): void {
   }

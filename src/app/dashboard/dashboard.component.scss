@@ -6,12 +6,18 @@ mat-drawer-container{
     mat-drawer{
         //background-color: lightpink;
         width: 250px;
-        padding: 16px;
+        padding: 5px;
         padding-top: 50px;
         .saludo{
             text-align: center;
+            font-weight: 500;
         }
-        
+        mat-divider{
+            border-top-width:2px ;
+            border-color: #64FFDA;
+            width: 90%;
+            margin: 0 auto ;
+        }
     }
     
 }

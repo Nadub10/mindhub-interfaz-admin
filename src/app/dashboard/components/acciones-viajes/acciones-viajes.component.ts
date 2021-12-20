@@ -6,6 +6,8 @@ import { UpdateTravel } from '../../../shared/interfaces/update-travel';
 import { AccederLocalStorageService } from '../../services/acceder-local-storage.service';
 import { CambiarStatusTravelService } from '../../services/cambiar-status-travel.service';
 import { infoTablasViajesEquipos } from '../../../shared/interfaces/infoTablasViajesEquipos';
+import { TraerUsuariosService } from '../../services/traer-usuarios.service';
+import { Usuario } from 'src/app/shared/interfaces/usuario';
 import Swal from'sweetalert2';
 interface statusTravel {
   value: number;
@@ -26,13 +28,21 @@ export class AccionesViajesComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: {item:infoTablasViajesEquipos,boton:string},
     private accederLocalStorage:AccederLocalStorageService,
-    private cambiarStatusTravel:CambiarStatusTravelService) {
+    private cambiarStatusTravel:CambiarStatusTravelService,
+    private traerUsuarios:TraerUsuariosService) {
       this.infoViaje=data.item;
       this.boton=data.boton
       this.estadoViaje = this.statusTravelArray[0].value;
      }
-
+     idCadete!:number;
   ngOnInit(): void {
+    this.traerUsuarios.traerUsuarios('cadetes')
+    this.traerUsuarios.getArrayUsuarios().subscribe(
+      resp=>{
+        this.arrayCadetes=[...resp];
+        this.idCadete=this.arrayCadetes[0].id;
+      }
+    )
   }
   statusTravelMap: any = {
     '1': 'Pendiente a retirar', '2': 'Retiro asignado', '3': 'Retirado','4':'Pendiente de reparación',
@@ -80,8 +90,11 @@ export class AccionesViajesComponent implements OnInit {
         userOperation:this.accederLocalStorage.idAdmin,
         cadeteId:this.updateForm.value?.idCadete || 0,
         //VER QUE PASA ACA CON LA RENUNCIA
-        renuncia:this.updateForm.value.estadoViaje !== 10? false:true,
+        renuncia:this.estadoViaje !== 10? false:true,
         observaciones:this.updateForm.value?.observaciones || ''
       }
     }
+    arrayCadetes:Usuario[]=[];
+
+    
 }
