@@ -13,11 +13,17 @@ import { SelectUsuarioService } from '../../services/select-usuario.service';
   styleUrls: ['./tabla-usuarios.component.scss']
 })
 export class TablaUsuariosComponent implements OnInit {
+  loading:boolean=true;
+  displayedColumns: string[] = ['fullName', 'rol.id', 'address','cellPhone','email','vehicle.name','acciones'];
+  dataSource!: MatTableDataSource<Usuario>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private traerUsuarios:TraerUsuariosService,
     public dialogService:DialogServiceService,
     private selectUsuarios:SelectUsuarioService) { }
-  loading:boolean=true;
+  
   ngOnInit(): void {
     this.traerUsuarios.traerUsuarios(this.selectUsuarios.tipoUsuario)
     this.traerUsuarios.getArrayUsuarios().subscribe(
@@ -29,16 +35,6 @@ export class TablaUsuariosComponent implements OnInit {
       }
     )
   }
-  displayedColumns: string[] = ['fullName', 'rol.id', 'address','cellPhone','email','vehicle.name','acciones'];
-  dataSource!: MatTableDataSource<Usuario>;
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
-
-  
-  
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

@@ -18,7 +18,5 @@ export class ListasComponent implements OnInit {
   infoTabla(parametro:string){
     
       this.traerUsuarios.traerUsuarios(parametro)
-       
-   
   }
 }

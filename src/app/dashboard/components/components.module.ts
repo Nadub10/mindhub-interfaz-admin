@@ -18,7 +18,6 @@ import { FormEditarUserComponent } from './form-editar-user/form-editar-user.com
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { InfoViajeComponent } from './info-viaje/info-viaje.component';
 import { InfoUsuarioComponent } from './info-usuario/info-usuario.component';
-import { GraficoAreaComponent } from './grafico-area/grafico-area.component';
 
 import { HighchartsChartModule } from 'highcharts-angular';
 
@@ -35,7 +34,6 @@ import { HighchartsChartModule } from 'highcharts-angular';
     FormEditarUserComponent,
     InfoViajeComponent,
     InfoUsuarioComponent,
-    GraficoAreaComponent
   ],
   imports: [
     CommonModule,
@@ -60,7 +58,6 @@ import { HighchartsChartModule } from 'highcharts-angular';
     AccionesViajesComponent,
     FormEditarUserComponent,
     InfoViajeComponent,
-    GraficoAreaComponent
   ]
 })
 export class ComponentsModule { }

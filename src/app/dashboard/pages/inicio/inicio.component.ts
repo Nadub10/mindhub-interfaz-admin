@@ -8,14 +8,16 @@ import { infoTablasViajesEquipos } from '../../../shared/interfaces/infoTablasVi
   styleUrls: ['./inicio.component.scss']
 })
 export class InicioComponent implements OnInit {
-loading=true;
-  constructor(public traerViajes:TraerViajesService) { }
-  arrayPruebita!:infoTablasViajesEquipos [];
+
+  loading=true;
+  arrayTodos!:infoTablasViajesEquipos [];
   arrayPendiente!:infoTablasViajesEquipos [];
   arrayencurso!:infoTablasViajesEquipos [];
   arrayentregados!:infoTablasViajesEquipos [];
   arrayentodoit!:infoTablasViajesEquipos [];
   arraysinconfirmar!:infoTablasViajesEquipos [];
+  constructor(public traerViajes:TraerViajesService) { }
+  
   ngOnInit(): void {
     
     this.traerViajes.traerViajesdashboard('activos',1,2,3,4,5,6,7,8)
@@ -27,7 +29,7 @@ loading=true;
     
     this.traerViajes.getArrayPrueba().subscribe(
       resp=>{
-        this.arrayPruebita=resp;
+        this.arrayTodos=resp;
         
       }
     )

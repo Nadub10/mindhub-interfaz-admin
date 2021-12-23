@@ -1,34 +1,27 @@
-table{
- width: 100%;   
- 
-}
 mat-spinner{
     margin: 200px auto;
 }
-th{
-    width: 25%;
+.tablita{
+    mat-form-field{
+        margin: 10px 0;
+        background-color: #fff;
+        height: 55px;
+        padding: 5px ;
+        padding-top: 0;
+        align-content: flex-end;
+    }
+    .mat-elevation-z8{
+        border-radius: 5px;
+        table{
+            width: 100%;   
+            th{
+                width: 25%;
+            }
+            
+        }
+    }
+
 }
- mat-form-field{
-     margin: 10px 0;
-     background-color: #fff;
-     height: 55px;
-     padding: 5px ;
-     padding-top: 0;
-    // border-radius: 5px;
-     align-content: flex-end;
- }
- .mat-elevation-z8{
-     border-radius: 5px;
- }
- .icon-edit{
- color:#1DE9B6;
- }
+
  
- .icon-info{
-    color:#2962FF
- }
- .mat-row:hover .mat-cell {
-    border-color: #1DE9B6;
-    font-weight: bold;
-  }
   

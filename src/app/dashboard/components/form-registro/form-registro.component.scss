@@ -1,34 +1,27 @@
 form{
-    //background-color: palevioletred;
-    background-color: #fff;
+        background-color: #fff;
         padding: 10px;
         padding-top: 18px;
         padding-bottom: 18px;
         border-radius: 5px;
         margin: 20px 0;
-        
-    .form-container{
-        
-    }
+        .group{
+            margin: 0px 10px;
+            mat-form-field{
+                width: 300px;
+            }
+        }
+        .seccion-btn{
+            margin-top: 20px;
+            width: 50%;
+            button{
+                width: 50%;
+                margin: 0 10px;
+            }
+        }
 }
 
-mat-form-field{
-    width: 300px;
-    //height: 60px;
-    
-}
 
-.group{
-    //background-color: chocolate;
-    margin: 0px 10px;
-}
 
-.seccion-btn{
-    margin-top: 20px;
-    width: 50%;
-    //background-color: lightskyblue;
-    button{
-        width: 50%;
-        margin: 0 10px;
-    }
-}
+
+

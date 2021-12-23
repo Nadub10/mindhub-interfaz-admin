@@ -6,23 +6,17 @@
     background-size: cover;
     .select{
       background-color: #fff;
-        //margin-top: 30px;
-       // margin-bottom: -20px;
        padding: 5px;
-      
        width: 250px;
        height: 60px;
-
     }
+    .mat-elevation-z8{
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 5px;
+      height: 57px;
+   }
     .tabla{
-      
         width: 80%;
-       // margin-top: -20px;
     }
-}
-.mat-elevation-z8{
-   background-color: #fff;
-   border-radius: 5px;
-   padding: 5px;
-   height: 57px;
 }

@@ -9,18 +9,18 @@ import { AccederLocalStorageService } from '../../services/acceder-local-storage
   styleUrls: ['./info-viaje.component.scss']
 })
 export class InfoViajeComponent implements OnInit {
-
+  infoViaje:infoTablasViajesEquipos;
+  boton:string;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: {item:infoTablasViajesEquipos,boton:string},
-    private accederLocalStorage:AccederLocalStorageService,) {
+    ) {
       this.infoViaje=data.item;
       this.boton=data.boton
      }
 
   ngOnInit(): void {
   }
-  infoViaje:infoTablasViajesEquipos;
-  boton:string;
+  
   statusTravelMap: any = {
     '1': 'Pendiente a retirar', '2': 'Retiro asignado', '3': 'Retirado','4':'Pendiente de reparación',
     '5':'Reparado', '6':'Entrega asignada', '7':'Pendiente de entrega','8':'Entregado','9':'Recibido'

@@ -3,25 +3,19 @@ import { TraerViajesService } from '../../services/traer-viajes.service';
 import { SelectViajesService } from '../../services/select-viajes.service';
 import { ViajesEquipos } from 'src/app/shared/interfaces/viajesEquipos';
 
-
-
-
 @Component({
   selector: 'app-viajes',
   templateUrl: './viajes.component.html',
   styleUrls: ['./viajes.component.scss']
 })
 export class ViajesComponent implements OnInit {
-
+  arrayViajes:ViajesEquipos[]=[];
   constructor(public traerViajes:TraerViajesService
     ,public selectViaje:SelectViajesService) { }
-    arrayViajes:ViajesEquipos[]=[];
-
     
   ngOnInit(): void {
     this.infoTabla(this.selectViaje.tipoViajes);
     this.traerViajes.traerViajes();
-    
   }
   
 

@@ -12,13 +12,15 @@ import { AccederLocalStorageService } from '../../services/acceder-local-storage
 export class InfoUsuarioComponent implements OnInit {
   datosUsuario:Usuario;
   boton:string;
+  hide:boolean=true;
+  
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: {item:Usuario,boton:string},
-    private AccederLocalStorageService:AccederLocalStorageService,) {
+    ) {
       this.datosUsuario=data.item;
       this.boton=data.boton
      }
-     hide:boolean=true;
+     
   ngOnInit(): void {
   }
 

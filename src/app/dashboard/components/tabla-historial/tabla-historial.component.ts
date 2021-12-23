@@ -13,17 +13,23 @@ import { DialogServiceService } from '../../services/dialog-service.service';
   styleUrls: ['./tabla-historial.component.scss']
 })
 export class TablaHistorialComponent implements OnInit {
+  loading:boolean=true;
+  displayedColumns: string[] = ['cadetefullName', 'clienteFullName', 'operationDate.fecha','operationDate.hora','lastStatusTravel','acciones'];
+  dataSource!: MatTableDataSource<infoTablasViajesEquipos>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private traerViajes:TraerViajesService,
     public dialogService:DialogServiceService) { }
-  loading:boolean=true;
+  
 
   ngOnInit(): void {
     this.traerViajes.setStatusTravel('historial',9);
     this.traerViajes.traerViajes();
     this.traerViajes.getArrayHistorial().subscribe(
       resp=>{
-        //console.log(resp)
+        
         this.dataSource= new MatTableDataSource(resp);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -35,18 +41,6 @@ export class TablaHistorialComponent implements OnInit {
     
   }
   
-  ngAfterViewInit() {
-    
-    
-  }
-  displayedColumns: string[] = ['cadetefullName', 'clienteFullName', 'operationDate.fecha','operationDate.hora','lastStatusTravel','acciones'];
-  dataSource!: MatTableDataSource<infoTablasViajesEquipos>;
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
-  
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

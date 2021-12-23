@@ -1,21 +1,26 @@
-
-mat-form-field{
-    width: 250px;
-    height: 60px;
-    
+.modificar-content{
+    .group{
+        //background-color: chocolate;
+        margin: 0px 10px;
+        .info-actual{
+            margin: 0;
+        }
+        mat-form-field{
+            width: 250px;
+            height: 60px;
+            
+        }
+    }
+    .seccion-btn{
+        margin-top: 20px;
+        width: 40%;
+    }
 }
 
-.group{
-    //background-color: chocolate;
-    margin: 0px 10px;
-}
-.info-actual{
-    margin: 0;
-}
-.seccion-btn{
-    margin-top: 20px;
-    width: 40%;
-}
+
+
+
+
 
 .ventanita{
     .header-container{

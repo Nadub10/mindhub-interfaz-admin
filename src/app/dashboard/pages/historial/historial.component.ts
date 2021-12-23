@@ -11,9 +11,6 @@ export class HistorialComponent implements OnInit {
   constructor(private traerViajes:TraerViajesService) { }
 
   ngOnInit(): void {
-    
-    //console.log(this.traerViajes.getArrayHistorial())
-   // this.traerViajes.setStatusTravel('historial',9);
    this.traerViajes.setStatusTravel('historial',9);
     this.traerViajes.traerViajes();
   }

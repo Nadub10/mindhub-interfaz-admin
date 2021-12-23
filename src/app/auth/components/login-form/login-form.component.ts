@@ -38,7 +38,7 @@ export class LoginFormComponent implements OnInit {
         else{
           formDirective.resetForm();
           this.loginForm.reset();
-          //alert('Esta web es para admin')
+          
           Swal.fire({
             icon: 'error',
             title: 'Esta web es sólo para Administradores!',

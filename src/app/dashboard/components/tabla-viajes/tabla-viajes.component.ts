@@ -19,12 +19,17 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class TablaViajesComponent implements OnInit {
 
+  displayedColumns: string[] = ['clienteFullName', 'clienteDireccion', 'lastStatusTravel','acciones'];
+  dataSource!: MatTableDataSource<infoTablasViajesEquipos>;
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  loading:boolean=true;
   constructor(public traerViajes:TraerViajesService, public dialogService:DialogServiceService) {
     
     
   }
-  expandedElement!: infoTablasViajesEquipos | null;
    ngOnInit(): void {
     
     this.traerViajes.getArrayViajes().subscribe(
@@ -35,25 +40,9 @@ export class TablaViajesComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.loading=false;
       }
-    )
-   // this.dataSource.data=this.arrayViajes;
-    
-    
-    
-    
+    )   
   }
-  displayedColumns: string[] = ['clienteFullName', 'clienteDireccion', 'lastStatusTravel','acciones'];
-  dataSource!: MatTableDataSource<infoTablasViajesEquipos>;
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
   
-
-  ngAfterViewInit() {
-    
-  }
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -62,7 +51,6 @@ export class TablaViajesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  loading:boolean=true;
   
   statusTravelMap: any = {
     '1': 'Pendiente a retirar', '2': 'Retiro asignado', '3': 'Retirado','4':'Pendiente de reparación',

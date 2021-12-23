@@ -23,8 +23,9 @@ export class AccionesViajesComponent implements OnInit {
   infoViaje:infoTablasViajesEquipos;
   boton:string;
   estadoViaje:number;
-  //VER A DONDE LLEVA ESTO XQ SINO SIEMPRE SETEO LA RENUNCIA A 1
   estadoRenuncia:number=1;
+  arrayCadetes:Usuario[]=[];
+  idCadete!:number;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: {item:infoTablasViajesEquipos,boton:string},
     private accederLocalStorage:AccederLocalStorageService,
@@ -34,7 +35,7 @@ export class AccionesViajesComponent implements OnInit {
       this.boton=data.boton
       this.estadoViaje = this.statusTravelArray[0].value;
      }
-     idCadete!:number;
+     
   ngOnInit(): void {
     this.traerUsuarios.traerUsuarios('cadetes')
     this.traerUsuarios.getArrayUsuarios().subscribe(
@@ -71,9 +72,9 @@ export class AccionesViajesComponent implements OnInit {
     });
 
     submitForm(formDirective:FormGroupDirective){
-      //console.log(this.updateForm.value)
+      
       let viajeModificado:UpdateTravel = this.crearObjetoUpdateTravel();
-      console.log(viajeModificado)
+      
       this.cambiarStatusTravel.setObjetoModificarViaje(viajeModificado);
       this.cambiarStatusTravel.modificarViaje();
       formDirective.resetForm();
@@ -89,12 +90,12 @@ export class AccionesViajesComponent implements OnInit {
         statusTravel:this.estadoViaje !== 10? this.updateForm.value.estadoViaje :this.estadoRenuncia,
         userOperation:this.accederLocalStorage.idAdmin,
         cadeteId:this.updateForm.value?.idCadete || 0,
-        //VER QUE PASA ACA CON LA RENUNCIA
+        
         renuncia:this.estadoViaje !== 10? false:true,
         observaciones:this.updateForm.value?.observaciones || ''
       }
     }
-    arrayCadetes:Usuario[]=[];
+    
 
     
 }

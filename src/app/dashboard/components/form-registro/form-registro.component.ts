@@ -36,12 +36,11 @@ export class FormRegistroComponent implements OnInit {
     submitForm(formDirective:FormGroupDirective){
       
       let u:Usuario = this.crearObjetoUsuario();
-      //LA FUNCION SOLO TIENE Q HACER EL SET USER
+      
      this.crearUsuario.setUser(u);
-      //DESDE EL BOTON DEL MODAL *ACEPTAR*SE TIENE Q EJECUTAR ESTE METODO
+      
      this.crearUsuario.crearUsuario('crear');
-     // console.log(u)
-     // console.log(this.registerForm.value.vehicleName),
+     
       formDirective.resetForm();
       
       this.registerForm.reset();
@@ -51,7 +50,7 @@ export class FormRegistroComponent implements OnInit {
       
       this.registerForm.reset();
     }
-    //POR EL MOMENTO ESTA FUNCION SOLO CREA 1 OBJETO USUARIO NUEVO, NO MODIFICA NI ELIMINA EL USUARIO
+    
     crearObjetoUsuario():Usuario{
       return this.user={
         id:0,

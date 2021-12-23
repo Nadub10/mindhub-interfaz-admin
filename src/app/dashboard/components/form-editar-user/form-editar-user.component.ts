@@ -16,16 +16,7 @@ export class FormEditarUserComponent implements OnInit {
   vacio:string=' '
   datosUsuario:Usuario;
   boton:string;
-  constructor(private crearUsuario:CrearUsuarioService,
-    @Inject(MAT_DIALOG_DATA) public data: {item:Usuario,boton:string},
-    private accederLocalStorage:AccederLocalStorageService) {
-      this.datosUsuario=data.item;
-      this.boton=data.boton
-     }
 
-  ngOnInit(): void {
-  
-  }
   hide:boolean=true;
   hidePass:boolean=true;
   hideRol:boolean=true;
@@ -37,6 +28,19 @@ export class FormEditarUserComponent implements OnInit {
 
   rolUsuario:string='cliente';
   tipoVehiculo:string='moto'
+  user!:Usuario;
+
+  constructor(private crearUsuario:CrearUsuarioService,
+    @Inject(MAT_DIALOG_DATA) public data: {item:Usuario,boton:string},
+    private accederLocalStorage:AccederLocalStorageService) {
+      this.datosUsuario=data.item;
+      this.boton=data.boton
+     }
+
+  ngOnInit(): void {
+  
+  }
+  
   registerForm = new FormGroup({
     fullName: new FormControl('')
     ,
@@ -47,7 +51,7 @@ export class FormEditarUserComponent implements OnInit {
       rolName: new FormControl(''),
       vehicleName: new FormControl(''),
     });
-    user!:Usuario;
+    
     //**ESTA FUNCION SOLO LE PASA EL OBJETO DEL USUARIO AL SERVICIO */
     submitForm(formDirective?:FormGroupDirective){
       
@@ -56,8 +60,7 @@ export class FormEditarUserComponent implements OnInit {
      this.crearUsuario.setUser(u);
       
      this.crearUsuario.crearUsuario(this.boton);
-     console.log(u)
-      console.log(this.registerForm.value.vehicleName)
+     
      if(formDirective!== undefined){
       formDirective.resetForm();
       
@@ -109,12 +112,10 @@ export class FormEditarUserComponent implements OnInit {
           isDeleted:0
         }
       }
-      console.log('estoy en el vehiculo null wii')
       return null
     }
 
     alternativasVehiculo():Vehicle|null{
-      console.log('estoy en la funcion alternativa vehiculo')
       if(this.datosUsuario.rol.id !== 2 && this.registerForm.value.rolName !== 'cadete'){
         return null
       }

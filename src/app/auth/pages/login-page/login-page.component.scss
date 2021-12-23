@@ -4,20 +4,19 @@
 
 main{
   height: calc(100vh - 55px);
-    //min-height: 100%;
-    //background-color: lightcoral;
+    
     .wrapper{
         width: 100%;
        min-height: 100%;
         background-color:map.get(styles.$colors, "negro");
-        //background-color: lightgreen;
+        
         @include styles.flex-center(column,center);
     .contenedor-imagen{
         width: 100%;
       
         @include styles.flex-center(column,center);
         overflow: hidden;
-        //background-color: salmon;
+        
         .gif-login{
             width: 100%;
             height: auto,
@@ -27,26 +26,24 @@ main{
     }
     
     .contenedor-info{
-      // @include styles.flex-center(column,flex-start);
-       //height: 50%;
-       // background-color: lightsalmon;
+      
         width: 100%;
         .titulo-container{
             @include styles.flex-center(column,center);
-          //  background-color: orangered;
+          
             width: 80%;
             margin:20px 0;
             padding: 0;
             .titulo{
               @include styles.titulos(2.3rem,1.5);
-            //  background-color: salmon;
+           
             width: 100%;
               font-weight: 700;
               margin: 10px 0;
               @include styles.gradiente();
             }
             .descripcion{
-               // background-color: sienna;
+             
                 margin: 10px 0;
                 @include styles.titulos(1.5rem,1.5);
             }
@@ -55,7 +52,7 @@ main{
         .form-container{
             margin:10px 0;
             width: 70%;
-            //background-color: salmon;
+          
             
             
              

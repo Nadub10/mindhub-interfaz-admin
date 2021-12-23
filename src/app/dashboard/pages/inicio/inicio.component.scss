@@ -2,7 +2,6 @@
 @use "sass:map";
 .wrapper{
     min-height: 100%;
-   // background-color: lightseagreen;
    background-color: #403A40;
    background-image:url('../../../../assets/img/blob-scene-haikei.png');
    background-size: cover;
@@ -15,41 +14,44 @@
         color:#000;
         width: 100%;
     }
-}
-
-img{
-    width:60px;
-     height:60px;
-     margin-left: 10px;
-}
-.subtitulo{
-    font-weight: 500;
-    color:#242325;
-    font-size: 1rem;
-    
-}
-.nro{
-    font-size: 1.7rem;
-    font-weight: 600;
-}
-mat-icon{
-    margin-left: 10px;
-    transform: scale(1.5);
-}
-mat-card{
-    margin: 10px;
-    width:250px  ;
-
-}
-
-h2{
+    h2{
      
-    @include styles.titulos(1rem,1.5);
-        padding: 5px 5px;
-        margin: 0;
-        background-color: #fff;
-        border-radius: 5px;
-        color:#000;
-        width: 10%;
-        margin: 10px ;
+        @include styles.titulos(1rem,1.5);
+            padding: 5px 5px;
+            margin: 0;
+            background-color: #fff;
+            border-radius: 5px;
+            color:#000;
+            width: 10%;
+            margin: 10px ;
+    }
+    mat-card{
+        margin: 10px;
+        width:250px  ;
+        .subtitulo{
+            font-weight: 500;
+            color:#242325;
+            font-size: 1rem;
+            
+        }
+        .nro{
+            font-size: 1.7rem;
+            font-weight: 600;
+        }
+        mat-icon{
+            margin-left: 10px;
+            transform: scale(1.5);
+        }
+        img{
+            width:60px;
+             height:60px;
+             margin-left: 10px;
+        }
+    }
 }
+
+
+
+
+
+
