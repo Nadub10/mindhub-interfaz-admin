@@ -14,7 +14,10 @@
 -Luego para conectarse con la api ingresar el comando ng serve --proxy-config proxy.config.json
 
 
-## Mirá el proyecto en acción
+## Usuario para ingresar a la plataforma
+email: admin@todoit.com
+
+contraseña: 123
 
 
 
